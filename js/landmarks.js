@@ -914,5 +914,130 @@ const LANDMARKS = {
     <path d="M92 106 V86 q0 -6 6 -6 q6 0 6 6 v20 Z" fill="#8c8578"/>
     <circle cx="98" cy="74" r="5" fill="#8c8578"/>
     <path d="M24 84 q6 2 6 8" stroke="#8c8578" stroke-width="2.4"/>`,
-    'A Ginjinha')
+    'A Ginjinha'),
+
+  // ── Manteigaria: nyitott konyha, pasztéjkorongok a márványpulton ────────
+  manteigaria: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M82 26 L102 16 V96 L82 106 Z" fill="#dcc8a2"/>
+    <path d="M22 26 H82 V106 H22 Z" fill="#f2e4c6"/>
+    <path d="M20 26 H84 L104 16 H40 Z" fill="#bd5334"/>
+    <path d="M84 16 L104 16 L84 26 Z" fill="#9b4126"/>
+    <path d="M20 26 H84 L104 16" stroke-width="1.7"/>
+    <rect x="30" y="34" width="10" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="52" y="34" width="10" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M86 34 L96 29 V44 L86 49 Z" fill="#7d94a3"/>
+    <path d="M22 56 H82" stroke-width="1.4"/>
+    <path d="M82 56 L102 46" stroke-width="1.2"/>
+    <path d="M20 90 V56 H84 V90 Z" fill="#7d94a3"/>
+    <path d="M20 90 V56 H84 V90 Z" stroke-width="1.7"/>
+    <path d="M24 86 V60 h56 v26 Z" fill="#efe9db"/>
+    <path d="M24 76 h56 v6 H24 Z" fill="#dcd5c4"/>
+    <path d="M24 76 h56" stroke-width="1.4"/>
+    <circle cx="31" cy="73" r="2.6" fill="#e0a52e"/>
+    <circle cx="39" cy="73" r="2.6" fill="#e0a52e"/>
+    <circle cx="47" cy="73" r="2.6" fill="#e0a52e"/>
+    <circle cx="55" cy="73" r="2.6" fill="#e0a52e"/>
+    <circle cx="63" cy="73" r="2.6" fill="#e0a52e"/>
+    <circle cx="71" cy="73" r="2.6" fill="#e0a52e"/>
+    <path d="M26 68 h10 v-6 h-10 Z" fill="#8c8578"/>
+    <path d="M66 68 h12 v-6 h-12 Z" fill="#8c8578"/>
+    <path d="M84 60 L100 52 V86 L84 94 Z" fill="#7d94a3"/>
+    <path d="M22 90 H82 V106 H22 Z" fill="#efe9db"/>
+    <path d="M22 90 H82 V106 H22 Z" stroke-width="1.5"/>
+    <rect x="26" y="93" width="6" height="6" fill="#7d94a3"/>
+    <rect x="38" y="93" width="6" height="6" fill="#7d94a3"/>
+    <rect x="50" y="93" width="6" height="6" fill="#7d94a3"/>
+    <rect x="62" y="93" width="6" height="6" fill="#7d94a3"/>
+    <rect x="74" y="93" width="6" height="6" fill="#7d94a3"/>
+    <rect x="32" y="100" width="6" height="5" fill="#7d94a3"/>
+    <rect x="56" y="100" width="6" height="5" fill="#7d94a3"/>
+    <path d="M84 94 L100 86 V102 L84 106 Z" fill="#c2b9a4"/>
+    <path d="M40 106 V72 q0 -7 7 -7 q7 0 7 7 v34 Z" fill="#8c8578"/>
+    <circle cx="47" cy="58" r="5.5" fill="#8c8578"/>
+    <path d="M54 76 q6 2 7 8" stroke="#8c8578" stroke-width="2.4"/>`,
+    'Manteigaria'),
+
+  // ── Confeitaria Nacional: régi, szimmetrikus cukrászdaportál ────────────
+  confeitaria: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M90 24 L106 16 V96 L90 104 Z" fill="#dcc8a2"/>
+    <path d="M16 24 H90 V104 H16 Z" fill="#f2e4c6"/>
+    <path d="M14 24 H92 L108 16 H30 Z" fill="#dcd5c4"/>
+    <path d="M92 16 L108 16 L92 24 Z" fill="#c2b9a4"/>
+    <path d="M14 24 H92 L108 16" stroke-width="1.7"/>
+    <rect x="26" y="32" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="48" y="32" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="70" y="32" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M94 32 L102 28 V42 L94 46 Z" fill="#7d94a3"/>
+    <path d="M14 62 H92 V50 H14 Z" fill="#e0a52e"/>
+    <path d="M14 62 H92 V50 H14 Z" stroke-width="1.6"/>
+    <path d="M92 50 L108 42 V54 L92 62 Z" fill="#e0a52e"/>
+    <path d="M24 56 h12 M42 56 h16 M64 56 h14" stroke="#453d31" stroke-width="1.1"/>
+    <path d="M14 104 V62 H92 V104 Z" fill="#6b4a2f"/>
+    <path d="M14 104 V62 H92 V104 Z" stroke-width="1.7"/>
+    <path d="M20 98 V68 h30 v30 Z" fill="#7d94a3"/>
+    <path d="M20 98 V68 h30 v30 Z" stroke-width="1.5"/>
+    <path d="M35 68 V98 M20 83 h30" stroke="#6b4a2f" stroke-width="1.4"/>
+    <path d="M56 98 V68 h30 v30 Z" fill="#7d94a3"/>
+    <path d="M56 98 V68 h30 v30 Z" stroke-width="1.5"/>
+    <path d="M71 68 V98 M56 83 h30" stroke="#6b4a2f" stroke-width="1.4"/>
+    <path d="M92 68 L106 60 V96 L92 104 Z" fill="#6b4a2f"/>
+    <path d="M96 72 L104 68 V90 L96 94 Z" fill="#7d94a3"/>
+    <path d="M27 96 h16 M31 96 V90 h8 v6 Z" fill="#dcd5c4"/>
+    <path d="M28 90 h14 v-5 h-14 Z" fill="#dcd5c4"/>
+    <path d="M31 85 h8 v-5 h-8 Z" fill="#dcd5c4"/>
+    <path d="M27 96 h16" stroke-width="1.4"/>
+    <path d="M28 90 h14 M31 85 h8" stroke-width="1.3"/>
+    <path d="M63 96 h16 M67 96 V90 h8 v6 Z" fill="#dcd5c4"/>
+    <path d="M64 90 h14 v-5 h-14 Z" fill="#dcd5c4"/>
+    <path d="M67 85 h8 v-5 h-8 Z" fill="#dcd5c4"/>
+    <path d="M63 96 h16" stroke-width="1.4"/>
+    <path d="M64 90 h14 M67 85 h8" stroke-width="1.3"/>
+    <path d="M14 46 h6 l-4 -6 Z" fill="#8c8578"/>
+    <path d="M12 40 h8 l-4 -5 Z" fill="#e0a52e"/>
+    <path d="M86 46 h6 l-4 -6 Z" fill="#8c8578"/>
+    <path d="M84 40 h8 l-4 -5 Z" fill="#e0a52e"/>
+    <path d="M16 104 H90" stroke-width="1.3"/>`,
+    'Confeitaria Nacional'),
+
+  // ── Bonjardim: csíkos ponyva, függőleges grillnyárs a kirakatban ────────
+  bonjardim: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M84 22 L102 12 V94 L84 104 Z" fill="#dcc8a2"/>
+    <path d="M26 22 H84 V104 H26 Z" fill="#f2e4c6"/>
+    <path d="M24 22 H86 L104 12 H42 Z" fill="#bd5334"/>
+    <path d="M86 12 L104 12 L86 22 Z" fill="#9b4126"/>
+    <path d="M24 22 H86 L104 12" stroke-width="1.7"/>
+    <rect x="34" y="30" width="9" height="11" rx="1" fill="#7d94a3"/>
+    <rect x="58" y="30" width="9" height="11" rx="1" fill="#7d94a3"/>
+    <path d="M88 30 L96 26 V40 L88 44 Z" fill="#7d94a3"/>
+    <path d="M26 96 V48 H84 V96 Z" fill="#7d94a3"/>
+    <path d="M26 96 V48 H84 V96 Z" stroke-width="1.7"/>
+    <path d="M30 92 V52 h50 v40 Z" fill="#efe9db"/>
+    <path d="M68 92 V52 h12 v40 Z" fill="#453d31"/>
+    <path d="M44 92 V50" stroke="#8c8578" stroke-width="2"/>
+    <path d="M38 60 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" fill="#e0a52e"/>
+    <path d="M38 60 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" stroke-width="1.4"/>
+    <path d="M38 70 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" fill="#e0a52e"/>
+    <path d="M38 70 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" stroke-width="1.4"/>
+    <path d="M38 80 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" fill="#e0a52e"/>
+    <path d="M38 80 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" stroke-width="1.4"/>
+    <path d="M38 90 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" fill="#e0a52e"/>
+    <path d="M38 90 a6 5 0 0 1 12 0 a6 5 0 0 1 -12 0 Z" stroke-width="1.4"/>
+    <path d="M56 92 V54 h8 v38 Z" fill="#c2b9a4"/>
+    <path d="M84 52 L100 44 V88 L84 96 Z" fill="#7d94a3"/>
+    <path d="M14 48 H92 L100 42 H22 Z" fill="#efe9db"/>
+    <path d="M14 48 H92 L100 42 H22 Z" stroke-width="1.7"/>
+    <path d="M22 42 h11 l-8 6 h-11 Z" fill="#bd5334"/>
+    <path d="M44 42 h11 l-8 6 h-11 Z" fill="#bd5334"/>
+    <path d="M66 42 h11 l-8 6 h-11 Z" fill="#bd5334"/>
+    <path d="M88 42 h11 l-8 6 h-11 Z" fill="#bd5334"/>
+    <path d="M18 96 h16 v3 h-16 Z" fill="#dcd5c4"/>
+    <path d="M18 96 h16 v3 h-16 Z" stroke-width="1.4"/>
+    <path d="M25 99 V106" stroke-width="1.4"/>
+    <path d="M92 98 h16 v3 h-16 Z" fill="#dcd5c4"/>
+    <path d="M92 98 h16 v3 h-16 Z" stroke-width="1.4"/>
+    <path d="M100 101 V106" stroke-width="1.4"/>`,
+    'Bonjardim — Rei dos Frangos')
 };
