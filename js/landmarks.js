@@ -565,5 +565,43 @@ const LANDMARKS = {
     <path d="M20 84 H88" stroke-width="1.2"/>
     <path d="M88 84 L104 76" stroke-width="1.1"/>
     <path d="M92 88 L100 84 V98 L92 102 Z" fill="#c2b9a4"/>`,
-    'Lisboa Story Centre')
+    'Lisboa Story Centre'),
+
+  // ── Miradouro de Santa Luzia: pergola összefüggő bougainvillea-sávval ───
+  'santa-luzia': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M96 44 L108 38 V88 L96 94 Z" fill="#dcc8a2"/>
+    <path d="M24 44 H96 V94 H24 Z" fill="#efe9db"/>
+    <path d="M22 44 H98 V38 H22 Z" fill="#dcd5c4"/>
+    <path d="M98 38 L110 32 V38 L98 44 Z" fill="#c2b9a4"/>
+    <rect x="32" y="52" width="7" height="7" fill="#7d94a3"/>
+    <rect x="46" y="52" width="7" height="7" fill="#7d94a3"/>
+    <rect x="60" y="52" width="7" height="7" fill="#7d94a3"/>
+    <rect x="74" y="52" width="7" height="7" fill="#7d94a3"/>
+    <rect x="39" y="64" width="7" height="7" fill="#7d94a3"/>
+    <rect x="53" y="64" width="7" height="7" fill="#7d94a3"/>
+    <rect x="67" y="64" width="7" height="7" fill="#7d94a3"/>
+    <rect x="81" y="64" width="7" height="7" fill="#7d94a3"/>
+    <rect x="32" y="76" width="7" height="7" fill="#7d94a3"/>
+    <rect x="46" y="76" width="7" height="7" fill="#7d94a3"/>
+    <rect x="60" y="76" width="7" height="7" fill="#7d94a3"/>
+    <rect x="74" y="76" width="7" height="7" fill="#7d94a3"/>
+    <path d="M100 54 L106 51 V61 L100 64 Z" fill="#7d94a3"/>
+    <path d="M18 94 V44 M40 94 V44 M62 94 V44 M84 94 V44" stroke-width="1.7"/>
+    <path d="M12 44 H100 L106 40 H18 Z" fill="#efe9db"/>
+    <path d="M12 44 H100" stroke-width="1.7"/>
+    <path d="M10 34 q8 -8 18 -3 q9 -7 18 -1 q9 -8 19 -2 q9 -6 18 0 q10 -4 17 4
+             q4 8 -4 10 q-6 6 -14 1 q-8 5 -16 0 q-9 6 -18 0 q-9 5 -17 -1
+             q-8 4 -13 -2 q-5 -4 -8 -6 Z" fill="#a45b78"/>
+    <path d="M10 34 q8 -8 18 -3 q9 -7 18 -1 q9 -8 19 -2 q9 -6 18 0 q10 -4 17 4
+             q4 8 -4 10 q-6 6 -14 1 q-8 5 -16 0 q-9 6 -18 0 q-9 5 -17 -1
+             q-8 4 -13 -2 q-5 -4 -8 -6 Z" stroke-width="1.7"/>
+    <path d="M14 44 q4 6 10 4 q-2 -6 -10 -4 Z" fill="#a45b78"/>
+    <path d="M96 42 q6 6 12 2 q-2 -7 -12 -2 Z" fill="#a45b78"/>
+    <path d="M10 94 H110 V106 H10 Z" fill="#dcd5c4"/>
+    <path d="M10 94 H110" stroke-width="1.7"/>
+    <path d="M10 86 H110" stroke-width="1.6"/>
+    <path d="M22 86 V94 M36 86 V94 M50 86 V94 M64 86 V94 M78 86 V94 M92 86 V94 M104 86 V94"
+          stroke-width="1.2"/>`,
+    'Miradouro de Santa Luzia')
 };
