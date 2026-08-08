@@ -334,5 +334,107 @@ const LANDMARKS = {
     <path d="M63 106 V80 h5 v26 Z" fill="#efe9db"/>
     <path d="M50 78 h20" stroke-width="1.4"/>
     <path d="M46 106 h-4 M74 106 h4" stroke-width="1.1"/>`,
-    'Igreja de São Roque')
+    'Igreja de São Roque'),
+
+  // ── Elevador da Glória: lépcsős szekrényű siklókocsi ─────────────────────
+  gloria: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M96 100 L112 84" stroke="#c2b9a4" stroke-width="1.4"/>
+    <path d="M18 102 H102" stroke="#8c8578" stroke-width="1.4"/>
+    <path d="M22 108 H106" stroke="#8c8578" stroke-width="1.4"/>
+    <circle cx="34" cy="99" r="4.5" fill="#8c8578"/>
+    <circle cx="76" cy="99" r="4.5" fill="#8c8578"/>
+    <path d="M84 30 L98 24 V56 L92 60 V84 L84 88 Z" fill="#dcc8a2"/>
+    <path d="M22 96 V60 H50 V44 H84 V88 H56 V96 Z" fill="#e6bf52"/>
+    <path d="M22 60 H50 V44 H84 L98 24 H64 L50 38 H36 Z" fill="#d8ae3f"/>
+    <path d="M22 96 V60 H50 V44 H84 V88 H56 V96 Z" stroke-width="1.7"/>
+    <path d="M84 44 L98 24 M84 88 L98 60" stroke-width="1.4"/>
+    <path d="M22 90 H56 V82 H84" stroke-width="1.2"/>
+    <path d="M22 88 H56 V96 H22 Z" fill="#efe9db"/>
+    <path d="M56 82 H84 V88 H56 Z" fill="#efe9db"/>
+    <rect x="27" y="66" width="20" height="18" rx="2" fill="#7d94a3"/>
+    <rect x="53" y="52" width="12" height="24" rx="2" fill="#7d94a3"/>
+    <rect x="70" y="52" width="11" height="24" rx="2" fill="#7d94a3"/>
+    <path d="M66 52 V78 M68 52 V78" stroke-width="1.1"/>
+    <path d="M86 48 L96 34 V58 L86 66 Z" fill="#7d94a3"/>
+    <path d="M25 86 q7 -6 13 -1 q6 5 12 -3" stroke="#9b4126" stroke-width="1.5"/>
+    <path d="M28 92 q8 -4 15 0" stroke="#7ba05b" stroke-width="1.4"/>
+    <path d="M60 86 q7 -5 13 0" stroke="#bd5334" stroke-width="1.4"/>
+    <path d="M50 44 V60 H22" stroke-width="1.4"/>
+    <path d="M64 44 L64 30" stroke-width="1.3"/>
+    <circle cx="64" cy="28" r="2.2" fill="#8c8578"/>
+    <path d="M40 60 h10 M56 44 h8" stroke-width="1.1"/>`,
+    'Elevador da Glória'),
+
+  // ── Miradouro das Portas do Sol: terasz, ernyőfenyő, alfamai tetők ──────
+  'portas-sol': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M12 52 H108 V60 H12 Z" fill="#7d94a3"/>
+    <path d="M18 60 H46 V78 H18 Z" fill="#f2e4c6"/>
+    <path d="M46 60 L54 64 V82 L46 78 Z" fill="#dcc8a2"/>
+    <path d="M16 60 L32 52 L54 60 Z" fill="#bd5334"/>
+    <path d="M32 52 L54 60 L54 64 L46 60 Z" fill="#9b4126"/>
+    <path d="M58 66 H86 V84 H58 Z" fill="#f2e4c6"/>
+    <path d="M86 66 L94 70 V88 L86 84 Z" fill="#dcc8a2"/>
+    <path d="M56 66 L72 58 L94 66 Z" fill="#bd5334"/>
+    <path d="M72 58 L94 66 L94 70 L86 66 Z" fill="#9b4126"/>
+    <path d="M28 82 H58 V96 H28 Z" fill="#f2e4c6"/>
+    <path d="M58 82 L66 86 V100 L58 96 Z" fill="#dcc8a2"/>
+    <path d="M26 82 L42 74 L66 82 Z" fill="#bd5334"/>
+    <path d="M42 74 L66 82 L66 86 L58 82 Z" fill="#9b4126"/>
+    <path d="M70 88 H98 V100 H70 Z" fill="#f2e4c6"/>
+    <path d="M68 88 L82 82 L100 88 Z" fill="#bd5334"/>
+    <rect x="24" y="66" width="6" height="7" rx="1" fill="#7d94a3"/>
+    <rect x="36" y="66" width="6" height="7" rx="1" fill="#7d94a3"/>
+    <rect x="64" y="72" width="6" height="7" rx="1" fill="#7d94a3"/>
+    <rect x="76" y="72" width="6" height="7" rx="1" fill="#7d94a3"/>
+    <rect x="34" y="87" width="6" height="7" rx="1" fill="#7d94a3"/>
+    <rect x="46" y="87" width="6" height="7" rx="1" fill="#7d94a3"/>
+    <rect x="76" y="92" width="6" height="6" rx="1" fill="#7d94a3"/>
+    <path d="M10 96 H112" stroke-width="1.4"/>
+    <path d="M10 96 H112 V106 H10 Z" fill="#dcd5c4" opacity="0.55"/>
+    <path d="M10 96 H112" stroke-width="1.6"/>
+    <path d="M10 88 H112" stroke-width="1.6"/>
+    <path d="M16 88 V96 M28 88 V96 M40 88 V96 M52 88 V96 M64 88 V96 M76 88 V96 M88 88 V96 M100 88 V96"
+          stroke-width="1.2"/>
+    <path d="M92 88 V44" stroke-width="1.7"/>
+    <path d="M70 44 q22 -18 42 0 q-20 -8 -42 0 Z" fill="#7ba05b"/>
+    <path d="M74 38 q18 -14 34 0 q-16 -7 -34 0 Z" fill="#7ba05b"/>
+    <path d="M84 56 l8 -6 M100 56 l-8 -6" stroke-width="1.2"/>`,
+    'Miradouro das Portas do Sol'),
+
+  // ── Praça do Rossio: királyszobor oszlopon, mellette barokk szökőkút ────
+  rossio: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M34 100 H72 V106 H34 Z" fill="#dcd5c4"/>
+    <path d="M72 100 L80 96 V102 L72 106 Z" fill="#c2b9a4"/>
+    <path d="M40 94 H66 V100 H40 Z" fill="#dcd5c4"/>
+    <path d="M66 94 L74 90 V96 L66 100 Z" fill="#c2b9a4"/>
+    <path d="M44 66 H62 V94 H44 Z" fill="#dcd5c4"/>
+    <path d="M62 66 L70 62 V90 L62 94 Z" fill="#c2b9a4"/>
+    <path d="M44 66 H62 M44 70 H62" stroke-width="1.2"/>
+    <rect x="49" y="76" width="8" height="10" rx="1" fill="#8c8578"/>
+    <path d="M42 66 H64 V62 H42 Z" fill="#dcd5c4"/>
+    <path d="M48 62 L50 30 H56 L58 62 Z" fill="#dcd5c4"/>
+    <path d="M53 30 V62" stroke-width="1.1"/>
+    <path d="M46 30 H60 V26 H46 Z" fill="#c2b9a4"/>
+    <path d="M48 26 H58 V22 H48 Z" fill="#dcd5c4"/>
+    <path d="M50 22 V13 h6 V22 Z" fill="#e0a52e"/>
+    <circle cx="53" cy="10" r="3" fill="#e0a52e"/>
+    <path d="M50 8 h6" stroke-width="1.2"/>
+    <path d="M56 16 l8 -4" stroke-width="1.3"/>
+    <path d="M78 106 a16 5 0 0 1 32 0 Z" fill="#7d94a3"/>
+    <path d="M78 106 a16 5 0 0 1 32 0" stroke-width="1.7"/>
+    <path d="M78 101 a16 5 0 0 0 32 0" stroke-width="1.4"/>
+    <path d="M90 100 h8 v-14 h-8 Z" fill="#dcd5c4"/>
+    <path d="M82 86 h24 a12 5 0 0 1 -24 0 Z" fill="#dcd5c4"/>
+    <path d="M82 86 h24" stroke-width="1.4"/>
+    <path d="M92 86 V74 h4 v12 Z" fill="#c2b9a4"/>
+    <path d="M86 74 h16 a8 4 0 0 1 -16 0 Z" fill="#dcd5c4"/>
+    <path d="M86 74 h16" stroke-width="1.3"/>
+    <path d="M94 74 V66" stroke-width="1.3"/>
+    <circle cx="94" cy="63" r="3" fill="#e0a52e"/>
+    <path d="M94 60 q-8 8 -10 14 M94 60 q8 8 10 14" stroke="#7d94a3" stroke-width="1.2"/>
+    <path d="M20 106 a8 6 0 0 1 16 0 Z" fill="#7ba05b"/>`,
+    'Praça do Rossio')
 };
