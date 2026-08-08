@@ -182,5 +182,91 @@ const LANDMARKS = {
     <path d="M60 40 V32" stroke-width="1.4"/>
     <circle cx="60" cy="30" r="2.4" fill="${LM.gold}"/>
     <path d="M30 54 V46 h10 v8 M80 54 V46 h10 v8" fill="${LM.roofSh}"/>`,
-    'Time Out Market')
+    'Time Out Market'),
+
+  // ── Casa dos Bicos: gúlaköves reneszánsz homlokzat ───────────────────────
+  'casa-bicos': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M92 32 L106 25 V98 L92 106 Z" fill="#dcc8a2"/>
+    <path d="M22 32 H92 V106 H22 Z" fill="#f2e4c6"/>
+    <path d="M20 32 H94 V26 H20 Z" fill="#dcd5c4"/>
+    <path d="M94 26 L108 19 V25 L94 32 Z" fill="#c2b9a4"/>
+    <path d="M20 26 l5 -5 5 5 5 -5 5 5 5 -5 5 5 5 -5 5 5 5 -5 5 5 5 -5 5 5 5 -5 5 5 H20 Z" fill="#dcd5c4"/>
+    <rect x="30" y="38" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="43" y="38" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="56" y="38" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="69" y="38" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="82" y="38" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="30" y="54" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="43" y="54" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="56" y="54" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="69" y="54" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="82" y="54" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <path d="M96 40 L102 37 V45 L96 48 Z" fill="#7d94a3"/>
+    <path d="M96 56 L102 53 V61 L96 64 Z" fill="#7d94a3"/>
+    <path d="M22 68 H92" stroke-width="1.2"/>
+    <path d="M29 70 L33 74 L29 78 L25 74 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M40 70 L44 74 L40 78 L36 74 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M51 70 L55 74 L51 78 L47 74 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M62 70 L66 74 L62 78 L58 74 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M73 70 L77 74 L73 78 L69 74 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M84 70 L88 74 L84 78 L80 74 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M34 82 L38 86 L34 90 L30 86 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M45 82 L49 86 L45 90 L41 86 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M56 82 L60 86 L56 90 L52 86 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M67 82 L71 86 L67 90 L63 86 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M78 82 L82 86 L78 90 L74 86 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M29 94 L33 98 L29 102 L25 98 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M40 94 L44 98 L40 102 L36 98 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M73 94 L77 98 L73 102 L69 98 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M84 94 L88 98 L84 102 L80 98 Z" fill="#dcc8a2" stroke-width="1.1"/>
+    <path d="M98 68 L101 71 L98 74 L95 71 Z" fill="#c2b9a4" stroke-width="1.1"/>
+    <path d="M98 82 L101 85 L98 88 L95 85 Z" fill="#c2b9a4" stroke-width="1.1"/>
+    <path d="M52 106 V100 a6 6 0 0 1 12 0 V106 Z" fill="#c2b9a4"/>`,
+    'Casa dos Bicos'),
+
+  // ── Praça dos Restauradores: obeliszk lépcsős talapzaton ─────────────────
+  restauradores: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M14 106 a8 7 0 0 1 16 0 Z" fill="#7ba05b"/>
+    <path d="M90 106 a8 7 0 0 1 16 0 Z" fill="#7ba05b"/>
+    <path d="M32 100 H88 V106 H32 Z" fill="#dcd5c4"/>
+    <path d="M88 100 L94 96 V102 L88 106 Z" fill="#c2b9a4"/>
+    <path d="M40 94 H80 V100 H40 Z" fill="#dcd5c4"/>
+    <path d="M80 94 L86 90 V96 L80 100 Z" fill="#c2b9a4"/>
+    <path d="M48 66 H72 V94 H48 Z" fill="#dcd5c4"/>
+    <path d="M72 66 L78 62 V90 L72 94 Z" fill="#c2b9a4"/>
+    <rect x="54" y="74" width="12" height="12" rx="1" fill="#8c8578"/>
+    <path d="M48 66 H72 M48 70 H72" stroke-width="1.2"/>
+    <path d="M50 66 L55 28 H65 L70 66 Z" fill="#dcd5c4"/>
+    <path d="M60 28 V66" stroke-width="1.1"/>
+    <path d="M55 28 L60 22 L65 28 Z" fill="#c2b9a4"/>
+    <path d="M60 22 V13" stroke-width="1.3"/>
+    <path d="M57 20 L60 13 L63 20 Z" fill="#e0a52e"/>
+    <path d="M60 16 L52 12 L53 17 Z" fill="#e0a52e"/>
+    <path d="M60 16 L68 12 L67 17 Z" fill="#e0a52e"/>
+    <circle cx="60" cy="10" r="2.2" fill="#e0a52e"/>`,
+    'Praça dos Restauradores'),
+
+  // ── 28-as villamos: háromnegyed nézet, íves tető, áramszedő ──────────────
+  tram28: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <circle cx="34" cy="100" r="5.5" fill="#8c8578"/>
+    <circle cx="88" cy="96" r="5.5" fill="#8c8578"/>
+    <path d="M42 96 L100 92 q6 -0.5 6 -6 V56 q0 -6 -6 -5 L42 58 Z" fill="#d8ae3f"/>
+    <path d="M14 100 L42 96 V58 q-14 -10 -28 6 Z" fill="#e6bf52"/>
+    <path d="M14 100 L106 92 V86 L14 94 Z" fill="#efe9db"/>
+    <rect x="48" y="61" width="12" height="16" rx="2" fill="#7d94a3"/>
+    <rect x="63" y="60" width="12" height="16" rx="2" fill="#7d94a3"/>
+    <rect x="78" y="59" width="12" height="16" rx="2" fill="#7d94a3"/>
+    <rect x="93" y="58" width="10" height="16" rx="2" fill="#7d94a3"/>
+    <path d="M19 68 H38 V82 L19 84 Z" fill="#7d94a3"/>
+    <path d="M22 58 H38 V66 H22 Z" fill="#efe9db"/>
+    <text x="30" y="65" font-family="Georgia, serif" font-size="8"
+          font-weight="700" text-anchor="middle" fill="#453d31" stroke="none">28</text>
+    <path d="M42 58 L100 51" stroke-width="1.2"/>
+    <path d="M60 55 L86 22" stroke-width="1.4"/>
+    <circle cx="87" cy="20" r="2.2" fill="#8c8578"/>
+    <rect x="57" y="53" width="6" height="3" rx="1" fill="#8c8578"/>`,
+    '28-as villamos')
 };
