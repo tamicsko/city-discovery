@@ -764,5 +764,55 @@ const LANDMARKS = {
     <path d="M21 46 V24 h6 l8 12 l8 -12 h6 v22 h-6 V34 l-8 11 l-8 -11 v12 Z" stroke-width="1.4"/>
     <path d="M26 106 h18" stroke-width="1.4"/>
     <path d="M92 106 a8 6 0 0 1 16 0 Z" fill="#7ba05b"/>`,
-    'Metró — Baixa-Chiado')
+    'Metró — Baixa-Chiado'),
+
+  // ── Rua Augusta: árkádos sétálóutca, hátul a diadalív sziluettje ────────
+  'rua-augusta': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M34 106 L52 62 H68 L86 106 Z" fill="#dcd5c4"/>
+    <path d="M34 106 L52 62 H68 L86 106 Z" stroke-width="1.4"/>
+    <path d="M50 70 q10 3 20 0" stroke="#efe9db" stroke-width="2.4"/>
+    <path d="M47 80 q13 4 26 0" stroke="#efe9db" stroke-width="2.6"/>
+    <path d="M43 91 q17 5 34 0" stroke="#efe9db" stroke-width="2.8"/>
+    <path d="M38 102 q22 5 44 0" stroke="#efe9db" stroke-width="3"/>
+    <path d="M48 62 H72 V40 H48 Z" fill="#c2b9a4"/>
+    <path d="M48 40 H72 V34 H48 Z" fill="#dcd5c4"/>
+    <path d="M52 62 V50 a8 8 0 0 1 16 0 V62 Z" fill="#8c8578"/>
+    <path d="M48 62 H72 V40 H48 Z" stroke-width="1.5"/>
+    <path d="M48 34 H72" stroke-width="1.5"/>
+    <path d="M8 24 H36 V106 H8 Z" fill="#f2e4c6"/>
+    <path d="M36 24 L50 32 V96 L36 106 Z" fill="#dcc8a2"/>
+    <path d="M6 24 H38 L52 32 H18 Z" fill="#bd5334"/>
+    <path d="M38 24 L52 32 H38 Z" fill="#9b4126"/>
+    <path d="M6 24 H38 L52 32" stroke-width="1.7"/>
+    <rect x="12" y="34" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <rect x="24" y="34" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <rect x="12" y="54" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <rect x="24" y="54" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <path d="M38 40 L46 45 V56 L38 51 Z" fill="#7d94a3"/>
+    <path d="M38 64 L46 69 V80 L38 75 Z" fill="#7d94a3"/>
+    <path d="M8 74 H36" stroke-width="1.4"/>
+    <path d="M10 106 V88 a7 7 0 0 1 14 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M10 106 V88 a7 7 0 0 1 14 0 V106" stroke-width="1.6"/>
+    <path d="M28 106 V90 a6 6 0 0 1 12 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M28 106 V90 a6 6 0 0 1 12 0 V106" stroke-width="1.6"/>
+    <path d="M84 24 H112 V106 H84 Z" fill="#f2e4c6"/>
+    <path d="M82 24 H114 L108 18 H76 Z" fill="#bd5334"/>
+    <path d="M82 24 H114" stroke-width="1.7"/>
+    <rect x="88" y="34" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <rect x="100" y="34" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <rect x="88" y="54" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <rect x="100" y="54" width="8" height="11" rx="1" fill="#7d94a3"/>
+    <path d="M84 74 H112" stroke-width="1.4"/>
+    <path d="M88 106 V88 a7 7 0 0 1 14 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M88 106 V88 a7 7 0 0 1 14 0 V106" stroke-width="1.6"/>
+    <path d="M104 106 V90 a6 6 0 0 1 10 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M104 106 V90 a6 6 0 0 1 10 0 V106" stroke-width="1.6"/>
+    <path d="M24 84 q10 -8 20 0 Z" fill="#e6bf52"/>
+    <path d="M24 84 q10 -8 20 0 Z" stroke-width="1.5"/>
+    <path d="M34 84 V100" stroke-width="1.3"/>
+    <path d="M78 82 q10 -8 20 0 Z" fill="#e6bf52"/>
+    <path d="M78 82 q10 -8 20 0 Z" stroke-width="1.5"/>
+    <path d="M88 82 V98" stroke-width="1.3"/>`,
+    'Rua Augusta')
 };
