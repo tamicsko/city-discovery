@@ -30,6 +30,9 @@ Ha nem éred el, minden szükséges információ itt van lent — abból is dolg
 - **Nézet:** enyhén rézsútos, madártávlati „papírtérkép" nézet — nem szigorú
   homlokzat, nem fotórealizmus. Olyan, mint egy nyomtatott turista térkép rajzolt
   épületei: felismerhető, leegyszerűsített, kedves.
+- **Legyen valódi térbeli mélysége:** a főhomlokzat mellett látszódjon egy
+  elforduló oldalfal is, sötétebb árnyalatban (a fal `#dcc8a2`, a kő `#c2b9a4`
+  árnyékos változatával). Ne csak szemből nézett homlokzatot rajzolj.
 - **Vonal:** minden alakzat közös tuskontúrt kap. A rajz egy csoportba kerül:
   `<g filter="url(#lm-rough)" fill="none" stroke="#453d31" stroke-width="1.7"
   stroke-linejoin="round" stroke-linecap="round">`
