@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#202124" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Lisszabon belváros felfedezése — térkép, látnivalók, séta-útvonal és navigáció.">
+<meta name="mobile-web-app-capable" content="yes">
+<title>City Discovery — Lisszabon</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="map" aria-label="Térkép"></div>
+
+<div class="topbar">
+  <div class="searchbar">
+    <span aria-hidden="true">🔍</span>
+    <input id="search" type="search" placeholder="Keresés a belvárosban" autocomplete="off"
+           enterkeyhint="search" aria-label="Keresés a helyek között">
+    <button class="icon-btn" id="clear-search" hidden aria-label="Keresés törlése">✕</button>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Szűrők"></div>
+</div>
+
+<div class="fabs" id="fabs">
+  <button class="fab" id="fab-walk" aria-pressed="false" aria-label="Séta-útvonal mutatása" title="Séta-útvonal">🚶</button>
+  <button class="fab" id="fab-locate" aria-label="Hol vagyok" title="Hol vagyok">📍</button>
+</div>
+
+<section class="sheet" id="sheet" aria-label="Helyek listája">
+  <div class="grabber" id="grabber" role="button" tabindex="0" aria-label="Lista húzása"></div>
+  <div class="sheet-head">
+    <h1 class="sheet-title" id="sheet-title">Lisszabon belváros</h1>
+    <span class="sheet-count" id="sheet-count"></span>
+  </div>
+  <div class="sheet-body" id="list"></div>
+</section>
+
+<div class="scrim" id="scrim"></div>
+
+<section class="detail" id="detail" aria-label="Hely részletei" aria-hidden="true">
+  <div class="grabber" id="detail-grabber"></div>
+  <div class="detail-scroll">
+    <div class="detail-head">
+      <div>
+        <h2 id="d-name"></h2>
+        <p class="detail-cat" id="d-cat"></p>
+      </div>
+      <button class="icon-btn" id="d-close" aria-label="Bezárás">✕</button>
+    </div>
+    <p class="detail-text" id="d-desc"></p>
+    <p class="detail-tip" id="d-tip" hidden></p>
+    <div class="mode-row" role="group" aria-label="Közlekedési mód">
+      <button class="mode" data-mode="walking"   aria-pressed="true">🚶 Gyalog</button>
+      <button class="mode" data-mode="transit"   aria-pressed="false">🚋 Tömegk.</button>
+      <button class="mode" data-mode="driving"   aria-pressed="false">🚗 Autó</button>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="d-nav">➤ Navigálás</button>
+      <button class="btn" id="d-fav" aria-pressed="false">☆ Mentés</button>
+      <button class="btn" id="d-visited" aria-pressed="false">✓ Voltam</button>
+    </div>
+    <a class="gmaps-link" id="d-search" href="#">Megnyitás a Google Mapsben név szerint ↗</a>
+  </div>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="js/pois.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
