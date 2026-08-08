@@ -508,5 +508,62 @@ const LANDMARKS = {
     <path d="M58 34 a5 4 0 0 1 9 1 a5 4 0 0 1 -9 -1 Z" fill="#c2b9a4"/>
     <path d="M90 68 a5 5 0 0 1 8 -3 a5 5 0 0 1 -8 3 Z" fill="#8c8578" opacity="0.55"/>
     <path d="M30 46 V50 M62 46 V50 M78 46 V50" stroke-width="1.1"/>`,
-    'Igreja de São Domingos')
+    'Igreja de São Domingos'),
+
+  // ── Museu Nacional de Arte Contemporânea: nyugodt kolostorhomlokzat ─────
+  'chiado-museu': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M90 34 L106 26 V96 L90 104 Z" fill="#dcc8a2"/>
+    <path d="M18 34 H90 V104 H18 Z" fill="#f2e4c6"/>
+    <path d="M16 34 H92 V26 H16 Z" fill="#dcd5c4"/>
+    <path d="M92 26 L108 18 V26 L92 34 Z" fill="#c2b9a4"/>
+    <path d="M18 66 H90" stroke-width="1.3"/>
+    <path d="M90 66 L106 58" stroke-width="1.2"/>
+    <rect x="24" y="42" width="9" height="14" rx="1" fill="#7d94a3"/>
+    <rect x="41" y="42" width="9" height="14" rx="1" fill="#7d94a3"/>
+    <rect x="58" y="42" width="9" height="14" rx="1" fill="#7d94a3"/>
+    <rect x="75" y="42" width="9" height="14" rx="1" fill="#7d94a3"/>
+    <path d="M94 40 L102 36 V50 L94 54 Z" fill="#7d94a3"/>
+    <path d="M22 100 V84 a6.5 6.5 0 0 1 13 0 V100 Z" fill="#7d94a3"/>
+    <path d="M22 100 V84 a6.5 6.5 0 0 1 13 0 V100 Z" stroke-width="1.5"/>
+    <path d="M39 100 V84 a6.5 6.5 0 0 1 13 0 V100 Z" fill="#7d94a3"/>
+    <path d="M39 100 V84 a6.5 6.5 0 0 1 13 0 V100 Z" stroke-width="1.5"/>
+    <path d="M73 100 V84 a6.5 6.5 0 0 1 13 0 V100 Z" fill="#7d94a3"/>
+    <path d="M73 100 V84 a6.5 6.5 0 0 1 13 0 V100 Z" stroke-width="1.5"/>
+    <path d="M94 78 L102 74 V90 L94 94 Z" fill="#7d94a3"/>
+    <path d="M54 104 V80 h16 v24 Z" fill="#dcd5c4"/>
+    <path d="M57 104 V83 h10 v21 Z" fill="#c2b9a4"/>
+    <path d="M52 80 h20 v-4 h-20 Z" fill="#dcd5c4"/>
+    <path d="M62 83 V104" stroke-width="1.1"/>
+    <path d="M18 104 H90" stroke-width="1.2"/>
+    <path d="M18 72 H90" stroke-width="1.1"/>`,
+    'Museu Nacional de Arte Contemporânea'),
+
+  // ── Lisboa Story Centre: háromíves árkádszakasz a főtérről ──────────────
+  'story-centre': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M88 40 L104 32 V98 L88 106 Z" fill="#dcc8a2"/>
+    <path d="M20 40 H88 V106 H20 Z" fill="#f2e4c6"/>
+    <path d="M18 40 L26 28 H94 L104 32 L88 40 Z" fill="#bd5334"/>
+    <path d="M94 28 L104 32 L88 40 V40 Z" fill="#9b4126"/>
+    <path d="M18 40 L26 28 H94 L104 32" stroke-width="1.7"/>
+    <path d="M18 40 H88" stroke-width="1.4"/>
+    <rect x="27" y="46" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="49" y="46" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="71" y="46" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M92 44 L100 40 V54 L92 58 Z" fill="#7d94a3"/>
+    <path d="M20 66 H88" stroke-width="1.4"/>
+    <path d="M88 66 L104 58" stroke-width="1.2"/>
+    <path d="M24 106 V84 a10 10 0 0 1 20 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M24 106 V84 a10 10 0 0 1 20 0 V106" stroke-width="1.7"/>
+    <path d="M44 106 V84 a10 10 0 0 1 20 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M44 106 V84 a10 10 0 0 1 20 0 V106" stroke-width="1.7"/>
+    <path d="M64 106 V84 a10 10 0 0 1 20 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M64 106 V84 a10 10 0 0 1 20 0 V106" stroke-width="1.7"/>
+    <path d="M48 106 V88 h12 v18 Z" fill="#efe9db"/>
+    <path d="M54 88 V106" stroke-width="1.2"/>
+    <path d="M20 84 H88" stroke-width="1.2"/>
+    <path d="M88 84 L104 76" stroke-width="1.1"/>
+    <path d="M92 88 L100 84 V98 L92 102 Z" fill="#c2b9a4"/>`,
+    'Lisboa Story Centre')
 };
