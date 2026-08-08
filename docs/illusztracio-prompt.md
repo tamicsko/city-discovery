@@ -1,10 +1,10 @@
 # Prompt a nevezetesség-illusztrációk elkészítéséhez
 
-Ezt a szöveget másold be a webes Claude-nak. Egyszerre egy adagot kérj (6–8 épület),
-különben elfogy a válaszhossz. A kapott kódot küldd vissza a fejlesztői beszélgetésbe,
-és bekerül az appba.
+Ezt a szöveget másold be a webes Claude-nak. **Egyszerre 2–3 épületet kérj, ne többet** —
+hosszabb válasznál a stream megszakadhat (`connection lost mid-stream`). A kapott kódot
+küldd vissza a fejlesztői beszélgetésbe, és bekerül az appba.
 
-Az adagok a fájl végén vannak felsorolva.
+A lenti listából mindig csak az aktuális 2–3 tételt hagyd bent a prompt végén, a többit töröld.
 
 ---
 
