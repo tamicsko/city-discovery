@@ -135,8 +135,10 @@ Minden sorban: **azonosító** — Megjelenítendő név — *mit ábrázoljon*.
 
 - **rossio** — Praça do Rossio — *Magas oszlop tetején álló királyszobor, előtte
   barokk szökőkút kerek medencével, alatta hullámmintás fekete-fehér burkolat.*
-- **figueira** — Praça da Figueira — *Bronz lovas szobor talapzaton, mögötte egy
-  sárga villamos eleje, körben lapos tér.*
+- ~~**figueira** — Praça da Figueira~~ — **ELHAGYVA.** Két nekifutásból sem lett
+  belőle olvasható lovas szobor: 62 képponton a ló szükségszerűen alaktalan
+  tömbbé esik össze, mert a felismerhetőségét a finom körvonal adná. Ez a hely
+  marad a színes kategória-tűvel.
 - **camoes** — Praça Luís de Camões — *Bronz állószobor magas, nyolcszögű
   talapzaton, körülötte négy kisebb ülő alak, két oldalt fa.*
 - **sao-domingos** — Igreja de São Domingos — *Egyszerű barokk templomhomlokzat egy
