@@ -711,5 +711,58 @@ const LANDMARKS = {
     <path d="M96 94 V86 h16 v8 Z" fill="#efe9db"/>
     <path d="M96 94 V86 h16" stroke-width="1.5"/>
     <rect x="100" y="88" width="5" height="4" fill="#7d94a3"/>`,
-    'Cais do Sodré')
+    'Cais do Sodré'),
+
+  // ── Miradouro de São Pedro de Alcântara: kétszintes kertterasz ──────────
+  'sao-pedro': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M14 82 V106" stroke-width="1.7"/>
+    <path d="M2 70 a13 12 0 0 1 24 0 a12 11 0 0 1 -24 0 Z" fill="#7ba05b"/>
+    <path d="M6 60 a10 9 0 0 1 16 0 a9 8 0 0 1 -16 0 Z" fill="#7ba05b"/>
+    <path d="M106 82 V106" stroke-width="1.7"/>
+    <path d="M94 70 a13 12 0 0 1 24 0 a12 11 0 0 1 -24 0 Z" fill="#7ba05b"/>
+    <path d="M98 60 a10 9 0 0 1 16 0 a9 8 0 0 1 -16 0 Z" fill="#7ba05b"/>
+    <path d="M20 92 H100 V106 H20 Z" fill="#dcd5c4"/>
+    <path d="M100 92 L108 88 V102 L100 106 Z" fill="#c2b9a4"/>
+    <path d="M20 92 H100" stroke-width="1.7"/>
+    <path d="M26 66 H94 V92 H26 Z" fill="#dcd5c4"/>
+    <path d="M94 66 L102 62 V88 L94 92 Z" fill="#c2b9a4"/>
+    <path d="M26 66 H94" stroke-width="1.7"/>
+    <path d="M26 58 H94" stroke-width="1.6"/>
+    <path d="M32 58 V66 M42 58 V66 M52 58 V66 M62 58 V66 M72 58 V66 M82 58 V66 M90 58 V66"
+          stroke-width="1.2"/>
+    <path d="M94 58 L102 54 V62 L94 66 Z" fill="#c2b9a4"/>
+    <path d="M44 92 V66 h32 v26 Z" fill="#c2b9a4"/>
+    <path d="M46 92 V88 h28 M48 88 V84 h26 M50 84 V80 h24 M52 80 V76 h22 M54 76 V72 h20 M56 72 V68 h18"
+          stroke-width="1.2"/>
+    <path d="M40 66 V92 M80 66 V92" stroke-width="1.5"/>
+    <path d="M64 92 H92 V70 H64 Z" fill="#dcd5c4"/>
+    <path d="M62 70 L78 60 L94 70 Z" fill="#bd5334"/>
+    <path d="M62 70 L78 60 L94 70" stroke-width="1.7"/>
+    <path d="M68 92 V78 h8 v14 Z" fill="#8c8578"/>
+    <rect x="81" y="76" width="7" height="8" rx="1" fill="#7d94a3"/>
+    <path d="M28 92 V78 a6 5 0 0 1 11 0 V92 Z" fill="#7ba05b"/>
+    <path d="M24 100 H96" stroke-width="1.2"/>`,
+    'Miradouro de São Pedro de Alcântara'),
+  // ── Metró Baixa-Chiado: piros M-tábla, mellette lépcsőlejárat ───────────
+  'baixa-chiado': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M52 106 H108 V90 q-28 -4 -56 0 Z" fill="#8c8578"/>
+    <path d="M52 106 H108 V90 q-28 -4 -56 0 Z" stroke-width="1.7"/>
+    <path d="M56 96 H104 M57 100 H105 M58 104 H106" stroke="#c2b9a4" stroke-width="1.3"/>
+    <path d="M50 88 q28 -5 58 0" stroke-width="1.6"/>
+    <path d="M50 88 V78 M108 88 V78" stroke-width="1.6"/>
+    <path d="M50 78 q28 -5 58 0" stroke-width="1.5"/>
+    <path d="M64 84 V80 M78 82 V78 M92 82 V78" stroke-width="1.2"/>
+    <path d="M32 106 V56 h6 V106 Z" fill="#8c8578"/>
+    <path d="M32 106 V56 h6 V106" stroke-width="1.5"/>
+    <path d="M14 14 H56 V56 H14 Z" fill="#bd5334"/>
+    <path d="M56 14 L62 18 V60 L56 56 Z" fill="#9b4126"/>
+    <path d="M14 14 H56 L62 18 H20 Z" fill="#9b4126"/>
+    <path d="M14 14 H56 V56 H14 Z" stroke-width="1.7"/>
+    <path d="M21 46 V24 h6 l8 12 l8 -12 h6 v22 h-6 V34 l-8 11 l-8 -11 v12 Z" fill="#efe9db"/>
+    <path d="M21 46 V24 h6 l8 12 l8 -12 h6 v22 h-6 V34 l-8 11 l-8 -11 v12 Z" stroke-width="1.4"/>
+    <path d="M26 106 h18" stroke-width="1.4"/>
+    <path d="M92 106 a8 6 0 0 1 16 0 Z" fill="#7ba05b"/>`,
+    'Metró — Baixa-Chiado')
 };
