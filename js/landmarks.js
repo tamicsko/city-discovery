@@ -603,5 +603,113 @@ const LANDMARKS = {
     <path d="M10 86 H110" stroke-width="1.6"/>
     <path d="M22 86 V94 M36 86 V94 M50 86 V94 M64 86 V94 M78 86 V94 M92 86 V94 M104 86 V94"
           stroke-width="1.2"/>`,
-    'Miradouro de Santa Luzia')
+    'Miradouro de Santa Luzia'),
+
+  // ── Pink Street: rózsaszín burkolat, két bárhomlokzat, füzérfény ────────
+  'pink-street': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M20 74 H112 V106 H20 Z" fill="#d98aa0"/>
+    <path d="M20 74 H112" stroke-width="1.4"/>
+    <path d="M32 82 H100 M28 92 H104 M24 100 H108" stroke="#c2b9a4" stroke-width="1.1"/>
+    <path d="M8 20 H42 V106 H8 Z" fill="#f2e4c6"/>
+    <path d="M42 20 L52 26 V100 L42 96 Z" fill="#dcc8a2"/>
+    <path d="M6 20 H44 L54 26 H16 Z" fill="#bd5334"/>
+    <path d="M44 20 L54 26 H44 Z" fill="#9b4126"/>
+    <path d="M6 20 H44 L54 26" stroke-width="1.7"/>
+    <rect x="13" y="30" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="28" y="30" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="13" y="52" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="28" y="52" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M44 34 L50 38 V48 L44 44 Z" fill="#7d94a3"/>
+    <path d="M44 58 L50 62 V72 L44 68 Z" fill="#7d94a3"/>
+    <path d="M8 74 H42" stroke-width="1.3"/>
+    <path d="M12 106 V84 a7 7 0 0 1 14 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M12 106 V84 a7 7 0 0 1 14 0 V106" stroke-width="1.7"/>
+    <path d="M31 106 V86 h10 v20 Z" fill="#efe9db"/>
+    <path d="M78 26 H112 V106 H78 Z" fill="#f2e4c6"/>
+    <path d="M76 26 H114 L108 20 H70 Z" fill="#bd5334"/>
+    <path d="M76 26 H114" stroke-width="1.7"/>
+    <rect x="84" y="36" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="99" y="36" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="84" y="58" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="99" y="58" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M78 78 H112" stroke-width="1.3"/>
+    <path d="M86 106 V86 a7 7 0 0 1 14 0 V106 Z" fill="#c2b9a4"/>
+    <path d="M86 106 V86 a7 7 0 0 1 14 0 V106" stroke-width="1.7"/>
+    <path d="M42 22 q28 16 44 6" stroke-width="1.2"/>
+    <circle cx="52" cy="27" r="1.9" fill="#e0a52e"/>
+    <circle cx="61" cy="30" r="1.9" fill="#e0a52e"/>
+    <circle cx="70" cy="31" r="1.9" fill="#e0a52e"/>
+    <circle cx="79" cy="29" r="1.9" fill="#e0a52e"/>`,
+    'Pink Street'),
+
+  // ── Bairro Alto: két keskeny lakóház, erkélyek, ruhaszárító kötél ───────
+  'bairro-alto': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M14 30 H56 V106 H14 Z" fill="#f2e4c6"/>
+    <path d="M56 30 L66 36 V100 L56 106 Z" fill="#dcc8a2"/>
+    <path d="M12 30 H58 L68 36 H22 Z" fill="#bd5334"/>
+    <path d="M58 30 L68 36 H58 Z" fill="#9b4126"/>
+    <path d="M12 30 H58 L68 36" stroke-width="1.7"/>
+    <path d="M70 44 H106 V106 H70 Z" fill="#f2e4c6"/>
+    <path d="M106 44 L114 48 V102 L106 106 Z" fill="#dcc8a2"/>
+    <path d="M68 44 H108 L116 48 H76 Z" fill="#bd5334"/>
+    <path d="M68 44 H108 L116 48" stroke-width="1.7"/>
+    <rect x="21" y="40" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="40" y="40" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="21" y="64" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="40" y="64" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="21" y="88" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="40" y="88" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="77" y="54" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="93" y="54" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="77" y="78" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="93" y="78" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M58 52 L64 56 V64 L58 60 Z" fill="#7d94a3"/>
+    <path d="M58 76 L64 80 V88 L58 84 Z" fill="#7d94a3"/>
+    <path d="M108 58 L112 60 V68 L108 66 Z" fill="#7d94a3"/>
+    <path d="M18 54 H52 V60 H18 Z" fill="#8c8578"/>
+    <path d="M18 54 H52 M18 60 H52 M24 54 V60 M31 54 V60 M38 54 V60 M45 54 V60" stroke-width="1.1"/>
+    <path d="M18 78 H52 V84 H18 Z" fill="#8c8578"/>
+    <path d="M18 78 H52 M18 84 H52 M24 78 V84 M31 78 V84 M38 78 V84 M45 78 V84" stroke-width="1.1"/>
+    <path d="M74 68 H104 V74 H74 Z" fill="#8c8578"/>
+    <path d="M74 68 H104 M74 74 H104 M80 68 V74 M87 68 V74 M94 68 V74 M100 68 V74" stroke-width="1.1"/>
+    <path d="M52 56 q14 8 26 4" stroke-width="1.1"/>
+    <path d="M56 59 h7 v9 h-7 Z" fill="#7d94a3"/>
+    <path d="M65 61 h7 v8 h-7 Z" fill="#bd5334"/>
+    <path d="M74 60 h6 v9 h-6 Z" fill="#efe9db"/>
+    <path d="M20 106 V92 h8 v14 Z" fill="#c2b9a4"/>
+    <path d="M84 106 V94 h9 v12 Z" fill="#c2b9a4"/>`,
+    'Bairro Alto'),
+
+  // ── Cais do Sodré: terminál órával, móló, komporr, vízsáv ───────────────
+  'cais-sodre': lmSvg(`
+    <path d="M8 96 H112" stroke-width="2.2"/>
+    <path d="M8 96 H112 V108 H8 Z" fill="#7d94a3"/>
+    <path d="M14 102 H44 M56 100 H86 M92 105 H110" stroke="#efe9db" stroke-width="1.2"/>
+    <path d="M18 46 H88 V90 H18 Z" fill="#f2e4c6"/>
+    <path d="M88 46 L102 40 V84 L88 90 Z" fill="#dcc8a2"/>
+    <path d="M16 46 H90 L104 40 H30 Z" fill="#bd5334"/>
+    <path d="M90 40 L104 40 L90 46 Z" fill="#9b4126"/>
+    <path d="M16 46 H90 L104 40" stroke-width="1.7"/>
+    <circle cx="53" cy="60" r="9" fill="#efe9db"/>
+    <circle cx="53" cy="60" r="9" stroke-width="1.6"/>
+    <path d="M53 60 V54 M53 60 L58 63" stroke-width="1.4"/>
+    <rect x="26" y="54" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="71" y="54" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M92 52 L99 49 V62 L92 65 Z" fill="#7d94a3"/>
+    <path d="M22 90 V76 h10 v14 Z" fill="#7d94a3"/>
+    <path d="M45 90 V74 a8 8 0 0 1 16 0 V90 Z" fill="#c2b9a4"/>
+    <path d="M45 90 V74 a8 8 0 0 1 16 0 V90" stroke-width="1.6"/>
+    <path d="M74 90 V76 h10 v14 Z" fill="#7d94a3"/>
+    <path d="M18 90 H88 M88 90 L102 84" stroke-width="1.2"/>
+    <path d="M10 90 H30 V96 H10 Z" fill="#c2b9a4"/>
+    <path d="M14 96 V102 M26 96 V102" stroke="#8c8578" stroke-width="1.3"/>
+    <path d="M90 100 q6 -6 16 -6 H112 V100 Z" fill="#efe9db"/>
+    <path d="M90 100 q6 -6 16 -6 H112" stroke-width="1.7"/>
+    <path d="M92 97 q5 -3 14 -3 H112" stroke="#7d94a3" stroke-width="1.6"/>
+    <path d="M96 94 V86 h16 v8 Z" fill="#efe9db"/>
+    <path d="M96 94 V86 h16" stroke-width="1.5"/>
+    <rect x="100" y="88" width="5" height="4" fill="#7d94a3"/>`,
+    'Cais do Sodré')
 };
