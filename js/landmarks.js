@@ -814,5 +814,105 @@ const LANDMARKS = {
     <path d="M78 82 q10 -8 20 0 Z" fill="#e6bf52"/>
     <path d="M78 82 q10 -8 20 0 Z" stroke-width="1.5"/>
     <path d="M88 82 V98" stroke-width="1.3"/>`,
-    'Rua Augusta')
+    'Rua Augusta'),
+
+  // ── Miradouro de Santa Catarina: terasz, mögötte a 25 de Abril híd ──────
+  'santa-catarina': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M8 74 H112 V86 H8 Z" fill="#7d94a3"/>
+    <path d="M14 78 H40 M52 81 H78 M86 77 H108" stroke="#efe9db" stroke-width="1.2"/>
+    <path d="M22 74 V14 h12 V74 Z" fill="#bd5334"/>
+    <path d="M22 74 V14 h12 V74" stroke-width="1.6"/>
+    <path d="M22 26 h12 M22 40 h12 M22 54 h12 M22 66 h12" stroke="#453d31" stroke-width="1.2"/>
+    <path d="M28 14 V74" stroke="#9b4126" stroke-width="1.2"/>
+    <path d="M86 74 V14 h12 V74 Z" fill="#bd5334"/>
+    <path d="M86 74 V14 h12 V74" stroke-width="1.6"/>
+    <path d="M86 26 h12 M86 40 h12 M86 54 h12 M86 66 h12" stroke="#453d31" stroke-width="1.2"/>
+    <path d="M92 14 V74" stroke="#9b4126" stroke-width="1.2"/>
+    <path d="M8 40 H112" stroke="#8c8578" stroke-width="2"/>
+    <path d="M8 22 q10 14 20 -8" stroke="#9b4126" stroke-width="1.6"/>
+    <path d="M28 14 q32 34 64 0" stroke="#9b4126" stroke-width="1.7"/>
+    <path d="M92 6 q10 22 20 8" stroke="#9b4126" stroke-width="1.6"/>
+    <path d="M40 27 V40 M52 33 V40 M64 35 V40 M76 33 V40" stroke="#9b4126" stroke-width="1.2"/>
+    <path d="M14 34 V40 M104 34 V40" stroke="#9b4126" stroke-width="1.2"/>
+    <path d="M10 86 H110 V106 H10 Z" fill="#dcd5c4"/>
+    <path d="M110 86 L112 85 V105 L110 106 Z" fill="#c2b9a4"/>
+    <path d="M10 86 H110" stroke-width="1.7"/>
+    <path d="M10 78 H110" stroke-width="1.6"/>
+    <path d="M20 78 V86 M32 78 V86 M44 78 V86 M56 78 V86 M68 78 V86 M80 78 V86 M92 78 V86 M102 78 V86"
+          stroke-width="1.2"/>
+    <path d="M14 106 a7 5 0 0 1 14 0 Z" fill="#7ba05b"/>
+    <path d="M92 106 a7 5 0 0 1 14 0 Z" fill="#7ba05b"/>
+    <path d="M50 106 V96 h10 v10 Z" fill="#c2b9a4"/>`,
+    'Miradouro de Santa Catarina'),
+
+  // ── Café A Brasileira: szecessziós portál, kint ülő bronzalak ───────────
+  brasileira: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M78 24 L98 14 V88 L78 98 Z" fill="#dcc8a2"/>
+    <path d="M18 24 H78 V98 H18 Z" fill="#f2e4c6"/>
+    <path d="M16 24 H80 L100 14 H36 Z" fill="#dcd5c4"/>
+    <path d="M80 14 L100 14 L80 24 Z" fill="#c2b9a4"/>
+    <path d="M16 24 H80 L100 14" stroke-width="1.7"/>
+    <rect x="26" y="32" width="10" height="13" rx="1" fill="#7d94a3"/>
+    <rect x="46" y="32" width="10" height="13" rx="1" fill="#7d94a3"/>
+    <rect x="64" y="32" width="9" height="13" rx="1" fill="#7d94a3"/>
+    <path d="M82 32 L92 27 V42 L82 47 Z" fill="#7d94a3"/>
+    <path d="M18 60 H78 V50 H18 Z" fill="#e0a52e"/>
+    <path d="M18 60 H78 V50 H18 Z" stroke-width="1.5"/>
+    <path d="M78 50 L98 40 V50 L78 60 Z" fill="#e0a52e"/>
+    <path d="M26 55 h8 M40 55 h10 M56 55 h8" stroke="#453d31" stroke-width="1.1"/>
+    <path d="M16 98 V60 H80 V98 Z" fill="#4a5f4a"/>
+    <path d="M16 98 V60 H80 V98 Z" stroke-width="1.7"/>
+    <path d="M22 94 V66 h30 v28 Z" fill="#7d94a3"/>
+    <path d="M22 94 V66 h30 v28 Z" stroke-width="1.5"/>
+    <path d="M37 66 V94" stroke-width="1.2"/>
+    <path d="M60 98 V66 h14 v32 Z" fill="#7d94a3"/>
+    <path d="M60 98 V66 h14 v32 Z" stroke-width="1.5"/>
+    <path d="M62 82 h4" stroke-width="1.3"/>
+    <path d="M80 66 L94 59 V92 L80 98 Z" fill="#4a5f4a"/>
+    <path d="M84 70 L92 66 V86 L84 90 Z" fill="#7d94a3"/>
+    <path d="M86 106 V96 h4 V106 Z" fill="#8c8578"/>
+    <path d="M78 96 a12 4 0 0 1 24 0 a12 4 0 0 1 -24 0 Z" fill="#dcd5c4"/>
+    <path d="M78 96 a12 4 0 0 1 24 0 a12 4 0 0 1 -24 0 Z" stroke-width="1.5"/>
+    <path d="M66 106 V92 h8 v14 Z" fill="#8c8578"/>
+    <path d="M62 92 h14 v-4 q-7 -6 -14 0 Z" fill="#8c8578"/>
+    <path d="M64 88 V76 q0 -6 6 -6 q6 0 6 6 v12 Z" fill="#8c8578"/>
+    <circle cx="70" cy="66" r="5" fill="#8c8578"/>
+    <path d="M76 78 q8 4 8 12" stroke="#8c8578" stroke-width="2.4"/>
+    <path d="M74 106 h8 V102 h-8 Z" fill="#8c8578"/>`,
+    'Café A Brasileira'),
+
+  // ── A Ginjinha: lyuk-a-falban bár, meggypiros hangsúllyal ───────────────
+  ginjinha: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M84 26 L104 16 V96 L84 106 Z" fill="#dcc8a2"/>
+    <path d="M30 26 H84 V106 H30 Z" fill="#f2e4c6"/>
+    <path d="M28 26 H86 L106 16 H48 Z" fill="#bd5334"/>
+    <path d="M86 16 L106 16 L86 26 Z" fill="#9b4126"/>
+    <path d="M28 26 H86 L106 16" stroke-width="1.7"/>
+    <rect x="38" y="34" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <rect x="60" y="34" width="9" height="12" rx="1" fill="#7d94a3"/>
+    <path d="M88 34 L98 29 V44 L88 49 Z" fill="#7d94a3"/>
+    <path d="M30 56 H84" stroke-width="1.4"/>
+    <path d="M84 56 L104 46" stroke-width="1.2"/>
+    <path d="M34 106 V62 h22 v44 Z" fill="#9b2f3a"/>
+    <path d="M34 106 V62 h22 v44 Z" stroke-width="1.7"/>
+    <path d="M38 106 V66 h14 v40 Z" fill="#453d31"/>
+    <path d="M50 88 a1.6 1.6 0 1 1 0.1 0 Z" fill="#e0a52e"/>
+    <path d="M62 84 h18 V66 h-18 Z" fill="#453d31"/>
+    <path d="M62 84 h18 V66 h-18 Z" stroke-width="1.6"/>
+    <path d="M62 84 h18 v4 h-18 Z" fill="#dcd5c4"/>
+    <path d="M66 80 a2 2 0 1 1 0.1 0 Z" fill="#9b2f3a"/>
+    <path d="M72 80 a2 2 0 1 1 0.1 0 Z" fill="#9b2f3a"/>
+    <path d="M58 62 h26 l6 -8 h-26 Z" fill="#9b2f3a"/>
+    <path d="M58 62 h26 l6 -8 h-26 Z" stroke-width="1.6"/>
+    <path d="M58 62 l1 4 M65 62 l1 4 M72 62 l1 4 M79 62 l1 4" stroke-width="1.1"/>
+    <path d="M84 88 L98 81 V100 L84 106 Z" fill="#c2b9a4"/>
+    <path d="M14 106 V84 q0 -6 6 -6 q6 0 6 6 v22 Z" fill="#8c8578"/>
+    <circle cx="20" cy="72" r="5" fill="#8c8578"/>
+    <path d="M92 106 V86 q0 -6 6 -6 q6 0 6 6 v20 Z" fill="#8c8578"/>
+    <circle cx="98" cy="74" r="5" fill="#8c8578"/>
+    <path d="M24 84 q6 2 6 8" stroke="#8c8578" stroke-width="2.4"/>`,
+    'A Ginjinha')
 };
