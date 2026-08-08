@@ -436,5 +436,77 @@ const LANDMARKS = {
     <circle cx="94" cy="63" r="3" fill="#e0a52e"/>
     <path d="M94 60 q-8 8 -10 14 M94 60 q8 8 10 14" stroke="#7d94a3" stroke-width="1.2"/>
     <path d="M20 106 a8 6 0 0 1 16 0 Z" fill="#7ba05b"/>`,
-    'Praça do Rossio')
+    'Praça do Rossio'),
+
+  // ── Praça Luís de Camões: állószobor nyolcszögű talapzaton, két fával ───
+  camoes: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M14 78 V106" stroke-width="1.7"/>
+    <path d="M4 70 a12 11 0 0 1 22 0 a11 10 0 0 1 -22 0 Z" fill="#7ba05b"/>
+    <path d="M8 62 a10 9 0 0 1 16 0 a9 8 0 0 1 -16 0 Z" fill="#7ba05b"/>
+    <path d="M106 78 V106" stroke-width="1.7"/>
+    <path d="M94 70 a12 11 0 0 1 22 0 a11 10 0 0 1 -22 0 Z" fill="#7ba05b"/>
+    <path d="M98 62 a10 9 0 0 1 16 0 a9 8 0 0 1 -16 0 Z" fill="#7ba05b"/>
+    <path d="M30 100 H84 V106 H30 Z" fill="#dcd5c4"/>
+    <path d="M84 100 L92 96 V102 L84 106 Z" fill="#c2b9a4"/>
+    <path d="M36 94 H78 V100 H36 Z" fill="#dcd5c4"/>
+    <path d="M78 94 L86 90 V96 L78 100 Z" fill="#c2b9a4"/>
+    <path d="M44 52 H62 V94 H44 Z" fill="#dcd5c4"/>
+    <path d="M62 52 L72 48 V90 L62 94 Z" fill="#c2b9a4"/>
+    <path d="M56 52 V94" stroke="#453d31" stroke-width="1.1"/>
+    <path d="M42 52 H64 V46 H42 Z" fill="#dcd5c4"/>
+    <path d="M64 46 L74 42 V48 L64 52 Z" fill="#c2b9a4"/>
+    <path d="M42 94 H64 M64 94 L74 90" stroke-width="1.2"/>
+    <rect x="47" y="62" width="8" height="12" rx="1" fill="#8c8578"/>
+    <path d="M66 60 L70 58 V70 L66 72 Z" fill="#8c8578"/>
+    <path d="M50 42 L54 26 h6 l4 16 Z" fill="#8c8578"/>
+    <path d="M54 26 l-1 -6 h8 l-1 6 Z" fill="#8c8578"/>
+    <circle cx="57" cy="16" r="4" fill="#8c8578"/>
+    <path d="M57 12 a4 3 0 0 1 5 3" stroke-width="1.2"/>
+    <path d="M54 28 L44 34 L46 42" stroke-width="1.5"/>
+    <path d="M60 28 L68 32 L66 42" stroke-width="1.5"/>
+    <path d="M62 30 L70 24" stroke-width="1.4"/>
+    <path d="M34 106 V98 a5 5 0 0 1 8 -3 V106 Z" fill="#8c8578"/>
+    <circle cx="37" cy="93" r="2.6" fill="#8c8578"/>
+    <path d="M72 106 V98 a5 5 0 0 1 8 -3 V106 Z" fill="#8c8578"/>
+    <circle cx="76" cy="93" r="2.6" fill="#8c8578"/>
+    <path d="M52 106 V100 a4 4 0 0 1 7 -2 V106 Z" fill="#c2b9a4"/>`,
+    'Praça Luís de Camões'),
+
+  // ── Igreja de São Domingos: barokk homlokzat, foltos, tűzvert kővel ─────
+  'sao-domingos': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M86 40 L104 30 V98 L86 106 Z" fill="#c2b9a4"/>
+    <path d="M22 40 H86 V106 H22 Z" fill="#dcd5c4"/>
+    <path d="M22 40 H86 V46 H22 Z" fill="#c2b9a4"/>
+    <path d="M86 40 L104 30 V36 L86 46 Z" fill="#8c8578" opacity="0.5"/>
+    <path d="M20 40 L54 18 L88 40 Z" fill="#dcd5c4"/>
+    <path d="M88 40 L104 30 L70 12 L54 18 Z" fill="#c2b9a4"/>
+    <path d="M20 40 L54 18 L88 40" stroke-width="1.7"/>
+    <path d="M28 38 L54 21 L80 38" stroke-width="1.1"/>
+    <path d="M54 18 V13" stroke-width="1.3"/>
+    <path d="M50 13 H58 M54 13 V6" stroke-width="1.4"/>
+    <circle cx="54" cy="58" r="10" fill="#7d94a3"/>
+    <circle cx="54" cy="58" r="10" stroke-width="1.5"/>
+    <path d="M54 48 V68 M44 58 H64" stroke-width="1.1"/>
+    <path d="M40 106 V84 a14 14 0 0 1 28 0 V106 Z" fill="#efe9db"/>
+    <path d="M40 106 V84 a14 14 0 0 1 28 0 V106" stroke-width="1.7"/>
+    <path d="M46 106 V86 a8 8 0 0 1 16 0 V106 Z" fill="#8c8578"/>
+    <path d="M54 88 V106" stroke-width="1.2"/>
+    <path d="M36 106 V78 h4 v28 Z" fill="#c2b9a4"/>
+    <path d="M68 106 V78 h4 v28 Z" fill="#c2b9a4"/>
+    <path d="M36 78 h8 v-4 h-10 Z" fill="#c2b9a4"/>
+    <path d="M64 78 h8 v-4 h-10 Z" fill="#c2b9a4"/>
+    <rect x="26" y="56" width="6" height="10" rx="1" fill="#7d94a3"/>
+    <rect x="76" y="56" width="6" height="10" rx="1" fill="#7d94a3"/>
+    <path d="M92 54 L100 50 V62 L92 66 Z" fill="#7d94a3"/>
+    <path d="M92 78 L100 74 V86 L92 90 Z" fill="#7d94a3"/>
+    <path d="M26 74 a6 5 0 0 1 11 2 a6 5 0 0 1 -11 -2 Z" fill="#c2b9a4"/>
+    <path d="M70 60 a5 6 0 0 1 9 3 a5 6 0 0 1 -9 -3 Z" fill="#c2b9a4"/>
+    <path d="M24 92 a7 5 0 0 1 12 1 a7 5 0 0 1 -12 -1 Z" fill="#c2b9a4"/>
+    <path d="M74 94 a6 5 0 0 1 10 2 a6 5 0 0 1 -10 -2 Z" fill="#c2b9a4"/>
+    <path d="M58 34 a5 4 0 0 1 9 1 a5 4 0 0 1 -9 -1 Z" fill="#c2b9a4"/>
+    <path d="M90 68 a5 5 0 0 1 8 -3 a5 5 0 0 1 -8 3 Z" fill="#8c8578" opacity="0.55"/>
+    <path d="M30 46 V50 M62 46 V50 M78 46 V50" stroke-width="1.1"/>`,
+    'Igreja de São Domingos')
 };
