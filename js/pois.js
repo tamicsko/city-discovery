@@ -16,7 +16,7 @@ const CITY = {
   name: 'Lisszabon belváros',
   center: [38.7112, -9.1385],
   zoom: 15.4,
-  pitch: 40,          // a papírtérkép rézsútos, madártávlati nézetéhez közelítve
+  pitch: 0,           // sík nézet — az axonometriát a tollrajz réteg adja
   // A térkép ne lehessen kicsavarni a belvárosból
   bounds: [[38.6985, -9.1600], [38.7230, -9.1180]]
 };

@@ -17,6 +17,19 @@
   --safe-b: env(safe-area-inset-bottom, 0px);
 }
 
+@font-face {
+  font-family: 'Patrick Hand';
+  src: url('../assets/fonts/patrick-hand-latin-400-normal.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Patrick Hand';
+  src: url('../assets/fonts/patrick-hand-latin-ext-400-normal.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+2C60-2C7F, U+A720-A7FF;
+}
+
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body {
@@ -29,7 +42,23 @@ html, body {
 
 button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
 
-#map { position: fixed; inset: 0; background: #ffffff; z-index: 0; }
+#map { position: fixed; inset: 0; background: #fdfaf2; z-index: 0; }
+
+/* A tollrajz vászna a MapLibre vászontárolójában ül, a WebGL réteg fölött */
+#ink { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+       transform-origin: 0 0; }
+
+/* A jelölők DOM-sorrendben a rajz után jönnek, de biztosítjuk is */
+.maplibregl-marker { z-index: 3; }
+
+/* Papírszemcse az egész térkép fölött — a felület fölé már nem ér */
+#paper {
+  position: fixed; inset: 0; z-index: 5; pointer-events: none;
+  background-image: url('../assets/paper.png');
+  background-size: 256px 256px;
+  mix-blend-mode: multiply;
+  opacity: .9;
+}
 
 /* ── Felső sáv ─────────────────────────────────────────────────────────── */
 .topbar {
@@ -197,13 +226,39 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
 .pin.numbered span { font-size: 13px; font-weight: 700; color: #fff; margin-top: -6px; }
 .pin.done { opacity: .55; }
 
+/* Rajzolt nevezetességek a térképen */
+.pin-lm {
+  width: 62px; height: 62px; cursor: pointer; position: relative;
+  filter: drop-shadow(0 3px 3px rgba(70,60,45,.32));
+  transition: transform .15s;
+}
+.pin-lm svg { width: 100%; height: 100%; display: block; }
+.pin-lm.selected { transform: scale(1.28); z-index: 999; }
+.pin-lm.done { opacity: .6; }
+.lm-badge:empty { display: none; }
+.lm-badge {
+  position: absolute; top: -2px; right: -2px;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  border-radius: 10px; background: var(--red); color: #fff;
+  font: 700 12px/20px Roboto, sans-serif; text-align: center; font-style: normal;
+}
+
+/* A rajz nagyban a részletek panel tetején */
+.detail-art {
+  display: grid; place-items: center;
+  padding: 6px 0 2px;
+}
+.detail-art[hidden] { display: none; }
+.detail-art svg { width: 132px; height: 132px; }
+
 /* Városrésznevek — a papírtérképek piros nagybetűs feliratai */
 .district {
   pointer-events: none; user-select: none;
   color: var(--red);
-  font-size: calc(13px * var(--s, 1));
-  font-weight: 700;
-  letter-spacing: .18em;
+  font-family: 'Patrick Hand', Roboto, sans-serif;
+  font-size: calc(17px * var(--s, 1));
+  font-weight: 400;
+  letter-spacing: .12em;
   text-transform: uppercase;
   text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff;
   white-space: nowrap;

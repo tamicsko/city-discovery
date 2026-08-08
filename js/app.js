@@ -27,7 +27,6 @@ const state = {
   visited: new Set(load(LS.visited, [])),
   travelMode: load(LS.mode, 'walking'),
   walk: false,
-  tilted: true,
   selected: null,
   userPos: null
 };
@@ -51,13 +50,16 @@ const map = new maplibregl.Map({
   bearing: 0,
   minZoom: 14,
   maxZoom: 19,
-  maxPitch: 60,
+  maxPitch: 0,
   maxBounds: [[west, south], [east, north]],
   dragRotate: false,              // észak mindig felül — papírtérkép-érzet
   attributionControl: { compact: true }
 });
 
 map.touchZoomRotate.disableRotation();
+
+// A tollrajz réteg a MapLibre vászna fölé, de a jelölők alá kerül
+Ink.init(map);
 
 // A felső sáv és az alsó lap ne takarja el a kiválasztott pontot
 const PAD = { top: 150, bottom: 190, left: 30, right: 30 };
@@ -73,36 +75,10 @@ map.on('error', e => {
 });
 
 // ── Séta-útvonal rétegek ───────────────────────────────────────────────────
-const EMPTY = { type: 'FeatureCollection', features: [] };
-
-function walkGeoJSON() {
-  return {
-    type: 'FeatureCollection',
-    features: [{
-      type: 'Feature',
-      geometry: { type: 'LineString', coordinates: WALK.path.map(toLngLat) },
-      properties: {}
-    }]
-  };
-}
-
-/* A stílus még nem biztos, hogy elemzett, amikor a felhasználó megnyomja a
-   gombot — ilyenkor egyszer újrapróbáljuk a következő stílus-eseménynél. */
-function applyWalk() {
-  if (!map.isStyleLoaded() || !map.getSource('walk')) {
-    map.once('styledata', applyWalk);
-    return;
-  }
-  map.getSource('walk').setData(state.walk ? walkGeoJSON() : EMPTY);
-  const vis = state.walk ? 'visible' : 'none';
-  map.setLayoutProperty('walk-casing', 'visibility', vis);
-  map.setLayoutProperty('walk-line', 'visibility', vis);
-}
-
 function setWalk(on) {
   state.walk = on;
   $('#fab-walk').setAttribute('aria-pressed', String(on));
-  applyWalk();
+  Ink.setRoute(on ? WALK.path.map(toLngLat) : null);
 
   if (on) {
     const lons = WALK.path.map(p => p[1]), lats = WALK.path.map(p => p[0]);
@@ -131,17 +107,24 @@ function addDistrictLabels() {
 const markers = new Map();
 
 function makePin(poi) {
+  const art = LANDMARKS[poi.id];
   const el = document.createElement('div');
-  el.className = 'pin';
-  el.style.setProperty('--pin', catById[poi.cat].color);
-  el.innerHTML = '<span></span>';
+  if (art) {
+    // A rajzolt nevezetességek maguk a jelölők — nem kapnak tűt
+    el.className = 'pin-lm';
+    el.innerHTML = art + '<i class="lm-badge"></i>';
+  } else {
+    el.className = 'pin';
+    el.style.setProperty('--pin', catById[poi.cat].color);
+    el.innerHTML = '<span></span>';
+  }
   el.addEventListener('click', ev => {
     ev.stopPropagation();
     selectPoi(poi.id, { fly: true });
   });
   const marker = new maplibregl.Marker({ element: el, anchor: 'bottom' })
     .setLngLat([poi.lng, poi.lat]);
-  return { marker, el, added: false };
+  return { marker, el, added: false, art: !!art };
 }
 
 for (const poi of POIS) markers.set(poi.id, makePin(poi));
@@ -160,10 +143,15 @@ function refreshMarkers() {
     if (!show) continue;
 
     const numbered = idx >= 0;
-    m.el.className = ['pin', numbered ? 'numbered' : '',
+    const base = m.art ? 'pin-lm' : 'pin';
+    m.el.className = [base, numbered ? 'numbered' : '',
                       state.selected === id ? 'selected' : '',
                       state.visited.has(id) ? 'done' : ''].filter(Boolean).join(' ');
-    m.el.firstChild.textContent = numbered ? String(idx + 1) : catById[poi.cat].emoji;
+    if (m.art) {
+      m.el.querySelector('.lm-badge').textContent = numbered ? String(idx + 1) : '';
+    } else {
+      m.el.firstChild.textContent = numbered ? String(idx + 1) : catById[poi.cat].emoji;
+    }
   }
 }
 
@@ -314,6 +302,10 @@ function selectPoi(id, { fly = false } = {}) {
   const poi = poiById[id];
   if (!poi) return;
   state.selected = id;
+
+  const art = $('#d-art');
+  art.innerHTML = LANDMARKS[poi.id] || '';
+  art.hidden = !LANDMARKS[poi.id];
 
   $('#d-name').textContent = poi.name;
   $('#d-cat').textContent = `${catById[poi.cat].emoji} ${catById[poi.cat].label}`;
@@ -569,10 +561,10 @@ $('#fab-walk').addEventListener('click', () => {
   openSheet('half');
 });
 
-$('#fab-tilt').addEventListener('click', () => {
-  state.tilted = !state.tilted;
-  $('#fab-tilt').setAttribute('aria-pressed', String(state.tilted));
-  map.easeTo({ pitch: state.tilted ? CITY.pitch : 0, duration: 500 });
+$('#fab-ink').addEventListener('click', () => {
+  const on = !Ink.isEnabled();
+  Ink.setEnabled(on);
+  $('#fab-ink').setAttribute('aria-pressed', String(on));
 });
 
 $('#fab-locate').addEventListener('click', locate);
@@ -619,6 +611,9 @@ map.on('moveend', () => {
 window.addEventListener('resize', () => openSheet('peek'));
 
 // ── Indulás ────────────────────────────────────────────────────────────────
+// A rajzok közös SVG-szűrője egyszer kerül a dokumentumba
+document.body.insertAdjacentHTML('afterbegin', LANDMARK_DEFS);
+
 buildChips();
 addDistrictLabels();
 render();

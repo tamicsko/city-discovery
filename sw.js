@@ -1,8 +1,8 @@
 /* Service worker: az app váza offline is elérhető, a vektorcsempéket és
    betűglyphokat korlátozott mérettel, futás közben cache-eljük. */
 
-const SHELL = 'cd-shell-v2';
-const TILES = 'cd-tiles-v2';
+const SHELL = 'cd-shell-v3';
+const TILES = 'cd-tiles-v3';
 const TILE_LIMIT = 900;
 
 const ASSETS = [
@@ -11,6 +11,13 @@ const ASSETS = [
   'css/styles.css',
   'js/app.js',
   'js/pois.js',
+  'js/ink.js',
+  'js/landmarks.js',
+  'assets/paper.png',
+  'assets/fonts/patrick-hand-latin-400-normal.woff2',
+  'assets/fonts/patrick-hand-latin-ext-400-normal.woff2',
+  'fonts/Patrick Hand Regular/0-255.pbf',
+  'fonts/Patrick Hand Regular/256-511.pbf',
   'style/lisbon.json',
   'vendor/maplibre-gl.css',
   'vendor/maplibre-gl.js',

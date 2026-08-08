@@ -16,6 +16,7 @@
 <body>
 
 <div id="map" aria-label="Térkép"></div>
+<div id="paper" aria-hidden="true"></div>
 
 <div class="topbar">
   <div class="searchbar">
@@ -28,7 +29,7 @@
 </div>
 
 <div class="fabs" id="fabs">
-  <button class="fab" id="fab-tilt" aria-pressed="true" aria-label="Dőlt vagy felülnézet" title="Nézet">⛰️</button>
+  <button class="fab" id="fab-ink" aria-pressed="true" aria-label="Rajzolt nézet ki-be" title="Rajzolt nézet">✏️</button>
   <button class="fab" id="fab-walk" aria-pressed="false" aria-label="Séta-útvonal mutatása" title="Séta-útvonal">🚶</button>
   <button class="fab" id="fab-locate" aria-label="Hol vagyok" title="Hol vagyok">📍</button>
 </div>
@@ -47,6 +48,7 @@
 <section class="detail" id="detail" aria-label="Hely részletei" aria-hidden="true">
   <div class="grabber" id="detail-grabber"></div>
   <div class="detail-scroll">
+    <div class="detail-art" id="d-art" aria-hidden="true"></div>
     <div class="detail-head">
       <div>
         <h2 id="d-name"></h2>
@@ -76,7 +78,9 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="vendor/maplibre-gl.js"></script>
+<script src="js/landmarks.js"></script>
 <script src="js/pois.js"></script>
+<script src="js/ink.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
