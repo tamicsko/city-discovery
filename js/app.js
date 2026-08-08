@@ -112,11 +112,11 @@ function makePin(poi) {
   if (art) {
     // A rajzolt nevezetességek maguk a jelölők — nem kapnak tűt
     el.className = 'pin-lm';
-    el.innerHTML = art + '<i class="lm-badge"></i>';
+    el.innerHTML = `<div class="lm-art">${art}</div><i class="lm-badge"></i>`;
   } else {
     el.className = 'pin';
     el.style.setProperty('--pin', catById[poi.cat].color);
-    el.innerHTML = '<span></span>';
+    el.innerHTML = '<div class="pin-body"><span></span></div>';
   }
   el.addEventListener('click', ev => {
     ev.stopPropagation();
@@ -150,7 +150,8 @@ function refreshMarkers() {
     if (m.art) {
       m.el.querySelector('.lm-badge').textContent = numbered ? String(idx + 1) : '';
     } else {
-      m.el.firstChild.textContent = numbered ? String(idx + 1) : catById[poi.cat].emoji;
+      m.el.querySelector('span').textContent =
+        numbered ? String(idx + 1) : catById[poi.cat].emoji;
     }
   }
 }

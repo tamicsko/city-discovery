@@ -1,8 +1,8 @@
 /* Service worker: az app váza offline is elérhető, a vektorcsempéket és
    betűglyphokat korlátozott mérettel, futás közben cache-eljük. */
 
-const SHELL = 'cd-shell-v3';
-const TILES = 'cd-tiles-v3';
+const SHELL = 'cd-shell-v4';
+const TILES = 'cd-tiles-v4';
 const TILE_LIMIT = 900;
 
 const ASSETS = [

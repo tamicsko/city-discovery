@@ -206,34 +206,52 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
 .scrim.open { opacity: 1; pointer-events: auto; }
 
 /* ── Térképi jelölők ───────────────────────────────────────────────────── */
+/* FONTOS: a jelölő gyökérelemének `position: absolute`-nak kell maradnia — ezt a
+   MapLibre `.maplibregl-marker` szabálya adja, és a saját stíluslapunk később
+   tölt be, tehát ha itt felülírnánk (pl. `relative`-re), a jelölők visszaesnének
+   a normál folyamba és egymás alá torlódnának. Ugyanezért nem tehetünk
+   `transition`-t sem a gyökér `transform`-jára: azt a MapLibre írja soronként a
+   pozicionáláshoz, az átmenet miatt a jelölő mozgatás közben lemaradna.
+   A nagyítás és az átmenet ezért egy belső burkolóra kerül. */
 .pin {
-  position: relative;
-  width: 30px; height: 38px; display: grid; place-items: center;
+  position: absolute; top: 0; left: 0;
+  width: 30px; height: 38px;
   filter: drop-shadow(0 2px 3px rgba(0,0,0,.35));
-  transition: transform .15s;
   cursor: pointer;
+}
+.pin-body {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  transform-origin: 50% 100%;
+  transition: transform .15s;
 }
 .pin span {
   position: relative; z-index: 1; font-size: 13px; margin-top: -8px;
   text-shadow: 0 0 2px rgba(0,0,0,.25);
 }
-.pin::before {
+.pin-body::before {
   content: ''; position: absolute; inset: 0;
   background: var(--pin, #1a73e8);
   clip-path: path('M15 38 C15 38 29 21 29 14 A14 14 0 1 0 1 14 C1 21 15 38 15 38 Z');
 }
-.pin.selected { transform: scale(1.3); z-index: 999; }
+.pin.selected { z-index: 999; }
+.pin.selected .pin-body { transform: scale(1.3); }
 .pin.numbered span { font-size: 13px; font-weight: 700; color: #fff; margin-top: -6px; }
 .pin.done { opacity: .55; }
 
 /* Rajzolt nevezetességek a térképen */
 .pin-lm {
-  width: 62px; height: 62px; cursor: pointer; position: relative;
+  position: absolute; top: 0; left: 0;
+  width: 62px; height: 62px; cursor: pointer;
   filter: drop-shadow(0 3px 3px rgba(70,60,45,.32));
+}
+.lm-art {
+  width: 100%; height: 100%;
+  transform-origin: 50% 100%;
   transition: transform .15s;
 }
 .pin-lm svg { width: 100%; height: 100%; display: block; }
-.pin-lm.selected { transform: scale(1.28); z-index: 999; }
+.pin-lm.selected { z-index: 999; }
+.pin-lm.selected .lm-art { transform: scale(1.28); }
 .pin-lm.done { opacity: .6; }
 .lm-badge:empty { display: none; }
 .lm-badge {
