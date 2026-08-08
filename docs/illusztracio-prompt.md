@@ -44,6 +44,10 @@ Ha nem éred el, minden szükséges információ itt van lent — abból is dolg
 - **Nincs szöveg a rajzokon.** Feliratot, cégért, betűt ne rajzolj (számjegy
   kivételesen mehet, ha az a lényeg — pl. a villamos száma).
 - **Átlátszó háttér**, keret és aláírás nélkül.
+- **Jelölő méretben is olvashatónak kell lennie.** A rajz a térképen 62 képpont
+  széles. Ezért töltse ki a vászon nagy részét, álljon a vízszintes talajvonalon,
+  és a fő tömege legyen kompakt — az átlós, elnyújtott kompozíció ekkora méretben
+  felismerhetetlen folttá esik szét.
 
 ### Színpaletta — csak ezekből dolgozz
 

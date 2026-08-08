@@ -268,5 +268,71 @@ const LANDMARKS = {
     <path d="M60 55 L86 22" stroke-width="1.4"/>
     <circle cx="87" cy="20" r="2.2" fill="#8c8578"/>
     <rect x="57" y="53" width="6" height="3" rx="1" fill="#8c8578"/>`,
-    '28-as villamos')
+    '28-as villamos'),
+
+  // ── Teatro Nacional D. Maria II: ión oszlopcsarnok, oromzati szoborral ───
+  dmaria: lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M88 30 L104 22 V96 L88 104 Z" fill="#dcc8a2"/>
+    <path d="M22 30 H88 V104 H22 Z" fill="#f2e4c6"/>
+    <rect x="92" y="40" width="6" height="10" rx="1" fill="#7d94a3"/>
+    <rect x="92" y="60" width="6" height="10" rx="1" fill="#7d94a3"/>
+    <path d="M22 96 H88 V104 H22 Z" fill="#c2b9a4"/>
+    <path d="M26 96 V44 H84 V96 Z" fill="#efe9db"/>
+    <path d="M34 96 V62 a5 5 0 0 1 10 0 V96 Z" fill="#c2b9a4"/>
+    <path d="M55 96 V62 a5 5 0 0 1 10 0 V96 Z" fill="#c2b9a4"/>
+    <path d="M76 96 V62 a5 5 0 0 1 10 0 V96 Z" fill="#c2b9a4"/>
+    <path d="M22 92 H88" stroke-width="1.2"/>
+    <path d="M26 44 H84 V40 H26 Z" fill="#dcd5c4"/>
+    <path d="M26 88 L26 46 M37 88 L37 46 M48 88 L48 46 M59 88 L59 46 M70 88 L70 46 M81 88 L81 46"
+          stroke="#453d31" stroke-width="1.1"/>
+    <path d="M23 88 H30 V46 H23 Z" fill="#dcd5c4"/>
+    <path d="M34 88 H41 V46 H34 Z" fill="#dcd5c4"/>
+    <path d="M45 88 H52 V46 H45 Z" fill="#dcd5c4"/>
+    <path d="M56 88 H63 V46 H56 Z" fill="#dcd5c4"/>
+    <path d="M67 88 H74 V46 H67 Z" fill="#dcd5c4"/>
+    <path d="M78 88 H85 V46 H78 Z" fill="#dcd5c4"/>
+    <path d="M22 46 H88 M22 88 H88" stroke-width="1.3"/>
+    <path d="M22 46 a3 3 0 0 1 6 0 M33 46 a3 3 0 0 1 6 0 M44 46 a3 3 0 0 1 6 0
+             M55 46 a3 3 0 0 1 6 0 M66 46 a3 3 0 0 1 6 0 M77 46 a3 3 0 0 1 6 0"
+          stroke-width="1.1"/>
+    <path d="M20 40 H90 V32 H20 Z" fill="#dcd5c4"/>
+    <path d="M90 32 L106 24 V32 L90 40 Z" fill="#c2b9a4"/>
+    <path d="M18 32 L55 14 L92 32 Z" fill="#efe9db"/>
+    <path d="M18 32 L55 14 L92 32" stroke-width="1.7"/>
+    <path d="M28 30 L55 17 L82 30" stroke-width="1.1"/>
+    <path d="M55 14 V11" stroke-width="1.3"/>
+    <path d="M52 11 L55 5 L58 11 Z" fill="#e0a52e"/>
+    <path d="M55 8 L49 7 M55 8 L61 6" stroke-width="1.1"/>
+    <path d="M40 96 h6 M61 96 h6" stroke-width="1.1"/>`,
+    'Teatro Nacional D. Maria II'),
+
+  // ── Igreja de São Roque: dísztelen homlokzat, aranyszín a nyitott ajtóban ─
+  'sao-roque': lmSvg(`
+    <path d="M8 106 H112" stroke-width="2.2"/>
+    <path d="M90 42 L106 34 V98 L90 106 Z" fill="#dcc8a2"/>
+    <path d="M24 42 H90 V106 H24 Z" fill="#f2e4c6"/>
+    <path d="M22 42 L57 28 L92 42 Z" fill="#dcd5c4"/>
+    <path d="M92 42 L106 34 L92 30 L57 28 Z" fill="#c2b9a4"/>
+    <path d="M22 42 L57 28 L92 42" stroke-width="1.7"/>
+    <path d="M24 46 H90" stroke-width="1.2"/>
+    <path d="M57 28 V22" stroke-width="1.3"/>
+    <path d="M52 22 H62 M57 22 V14" stroke-width="1.4"/>
+    <rect x="32" y="54" width="7" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="53" y="54" width="8" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="75" y="54" width="7" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="94" y="52" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <rect x="94" y="72" width="6" height="9" rx="1" fill="#7d94a3"/>
+    <path d="M24 70 H90" stroke-width="1.2"/>
+    <path d="M30 106 V80 h14 v26 Z" fill="#dcd5c4"/>
+    <path d="M32 106 V82 h10 v24 Z" fill="#c2b9a4"/>
+    <path d="M76 106 V80 h14 v26 Z" fill="#dcd5c4"/>
+    <path d="M78 106 V82 h10 v24 Z" fill="#c2b9a4"/>
+    <path d="M50 106 V78 h20 v28 Z" fill="#dcd5c4"/>
+    <path d="M52 106 V80 h16 v26 Z" fill="#e0a52e"/>
+    <path d="M52 106 V80 h5 v26 Z" fill="#efe9db"/>
+    <path d="M63 106 V80 h5 v26 Z" fill="#efe9db"/>
+    <path d="M50 78 h20" stroke-width="1.4"/>
+    <path d="M46 106 h-4 M74 106 h4" stroke-width="1.1"/>`,
+    'Igreja de São Roque')
 };
