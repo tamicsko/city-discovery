@@ -3,15 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#202124" media="(prefers-color-scheme: dark)">
-<meta name="description" content="Lisszabon belváros felfedezése — térkép, látnivalók, séta-útvonal és navigáció.">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Lisszabon belváros felfedezése rajzolt turista térképen — látnivalók, séta-útvonal és navigáció.">
 <meta name="mobile-web-app-capable" content="yes">
 <title>City Discovery — Lisszabon</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
-<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -29,6 +28,7 @@
 </div>
 
 <div class="fabs" id="fabs">
+  <button class="fab" id="fab-tilt" aria-pressed="true" aria-label="Dőlt vagy felülnézet" title="Nézet">⛰️</button>
   <button class="fab" id="fab-walk" aria-pressed="false" aria-label="Séta-útvonal mutatása" title="Séta-útvonal">🚶</button>
   <button class="fab" id="fab-locate" aria-label="Hol vagyok" title="Hol vagyok">📍</button>
 </div>
@@ -66,13 +66,16 @@
       <button class="btn" id="d-fav" aria-pressed="false">☆ Mentés</button>
       <button class="btn" id="d-visited" aria-pressed="false">✓ Voltam</button>
     </div>
-    <a class="gmaps-link" id="d-search" href="#">Megnyitás a Google Mapsben név szerint ↗</a>
+    <div class="links">
+      <button class="link-btn" id="d-images">🖼️ Google Képek</button>
+      <button class="link-btn" id="d-search">🗺️ Google Maps</button>
+    </div>
   </div>
 </section>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="vendor/leaflet.js"></script>
+<script src="vendor/maplibre-gl.js"></script>
 <script src="js/pois.js"></script>
 <script src="js/app.js"></script>
 </body>

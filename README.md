@@ -20,7 +20,7 @@ telepíthető és használható.
 | 🚶 **Séta-útvonal** | 11 megállós, ~3,5 km-es körséta a térképen kirajzolva; egy gombbal az egész útvonal átadható a Google Mapsnek |
 | ⭐ **Mentés** | Kedvencek és „itt voltam" jelölés, a telefonon helyben tárolva |
 | 📍 **Hol vagyok** | Élő pozíció a térképen; a lista a hozzád legközelebbi helyekkel kezdődik |
-| 🌙 **Sötét mód** | Automatikusan követi a telefon beállítását |
+| 🖼️ **Google Képek** | Egy gombbal megnyitja a helyhez tartozó Google Képek keresést |
 | 📴 **Offline** | Az app váza és a már megnézett térképcsempék offline is betöltődnek |
 
 ## Telepítés a telefonra
@@ -43,17 +43,27 @@ Egy-két perc múlva elérhető a `https://<felhasználó>.github.io/city-discov
 
 ```
 index.html               az egyetlen oldal
-css/styles.css           Google Maps-szerű felület, világos és sötét témával
-js/pois.js               a helyek adatai, kategóriák és a séta-útvonal
+css/styles.css           a kezelőfelület (világos, papírtérkép-hangulatú)
+style/lisbon.json        a térkép saját rajzstílusa — ez adja a látványt
+js/pois.js               a helyek adatai, kategóriák, városrészek, séta-útvonal
 js/app.js                térkép, szűrés, alsó lap, navigációs átadás
-vendor/                  Leaflet 1.9.4 (helyben, CDN nélkül)
+vendor/                  MapLibre GL JS 5 (helyben, CDN nélkül)
 icons/                   PWA ikonok
 manifest.webmanifest     telepíthetőség
 sw.js                    service worker (offline váz + csempe-gyorsítótár)
 ```
 
-**Térkép:** [Leaflet](https://leafletjs.com/) + OpenStreetMap adat, CARTO csempékkel.
-Nem kell hozzá API kulcs és bankkártya.
+**Térkép:** [MapLibre GL JS](https://maplibre.org/) + [OpenFreeMap](https://openfreemap.org/)
+vektorcsempék OpenStreetMap adatból. API kulcs, regisztráció és lekérdezési limit nélkül.
+
+A látvány egy nyomtatott turista térképet idéz: szürke, kissé kiemelt épülettömbök,
+fehér utcák, sárgával jelölt fővonalak és villamosútvonalak, piros városrésznevek.
+Az egészet a `style/lisbon.json` írja le — a színek és vonalvastagságok ott
+szerkeszthetők, kód érintése nélkül. Mivel papírtérképet utánoz, **sötét téma
+szándékosan nincs.**
+
+> A rajzolt, színes épületillusztrációk (Praça do Comércio, Santa Justa, Carmo,
+> az Alfama-domb) még nem készültek el — jelenleg minden hely egységes jelölőt kap.
 
 **Navigáció:** a Google Maps URL API-n keresztül (`/maps/dir/?api=1&…`), ami Androidon
 közvetlenül a telepített Google Maps appot nyitja meg. Az útvonal átadásakor a Google

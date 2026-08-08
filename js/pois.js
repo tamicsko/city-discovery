@@ -15,10 +15,25 @@ const CATEGORIES = [
 const CITY = {
   name: 'Lisszabon belváros',
   center: [38.7112, -9.1385],
-  zoom: 15,
+  zoom: 15.4,
+  pitch: 40,          // a papírtérkép rézsútos, madártávlati nézetéhez közelítve
   // A térkép ne lehessen kicsavarni a belvárosból
   bounds: [[38.6985, -9.1600], [38.7230, -9.1180]]
 };
+
+/* Városrésznevek — a papír turista térképeken megszokott piros nagybetűs
+   feliratok. HTML-markerként jelennek meg, így tetszőleges betűtípust
+   használhatnak (a csempeszerver csak Noto Sans glyphet szolgál ki). */
+const DISTRICTS = [
+  { name: 'Baixa',         lat: 38.7104, lng: -9.1372, size: 1.0 },
+  { name: 'Chiado',        lat: 38.7112, lng: -9.1418, size: 0.95 },
+  { name: 'Bairro Alto',   lat: 38.7131, lng: -9.1452, size: 0.95 },
+  { name: 'Alfama',        lat: 38.7110, lng: -9.1288, size: 1.0 },
+  { name: 'Castelo',       lat: 38.7143, lng: -9.1322, size: 0.9 },
+  { name: 'Mouraria',      lat: 38.7163, lng: -9.1341, size: 0.85 },
+  { name: 'Cais do Sodré', lat: 38.7066, lng: -9.1462, size: 0.85 },
+  { name: 'Restauradores', lat: 38.7166, lng: -9.1420, size: 0.8 }
+];
 
 const POIS = [
   // ── Látnivalók ─────────────────────────────────────────────────────────────

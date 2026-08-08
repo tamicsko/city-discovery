@@ -1,6 +1,6 @@
 /* City Discovery — Lisszabon belváros
-   Egyetlen oldalas térképes app. A térkép OpenStreetMap adatból (CARTO csempék),
-   a tényleges navigáció a telefonra telepített Google Maps appban indul. */
+   Rajzolt turista térkép MapLibre GL JS-sel, OpenFreeMap vektorcsempéken.
+   A tényleges navigáció a telefonra telepített Google Maps appban indul. */
 
 'use strict';
 
@@ -27,6 +27,7 @@ const state = {
   visited: new Set(load(LS.visited, [])),
   travelMode: load(LS.mode, 'walking'),
   walk: false,
+  tilted: true,
   selected: null,
   userPos: null
 };
@@ -35,89 +36,135 @@ const catById = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 const poiById = Object.fromEntries(POIS.map(p => [p.id, p]));
 const $ = sel => document.querySelector(sel);
 
+// A POI adat [lat, lng] sorrendű, a MapLibre [lng, lat]-ot vár
+const toLngLat = ([lat, lng]) => [lng, lat];
+
 // ── Térkép ─────────────────────────────────────────────────────────────────
-const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const [[south, west], [north, east]] = CITY.bounds;
 
-const map = L.map('map', {
-  center: CITY.center,
+const map = new maplibregl.Map({
+  container: 'map',
+  style: 'style/lisbon.json',
+  center: toLngLat(CITY.center),
   zoom: CITY.zoom,
-  minZoom: 13,
+  pitch: CITY.pitch,
+  bearing: 0,
+  minZoom: 14,
   maxZoom: 19,
-  zoomControl: false,
-  attributionControl: true,
-  maxBounds: L.latLngBounds(CITY.bounds).pad(0.35),
-  maxBoundsViscosity: 0.7
+  maxPitch: 60,
+  maxBounds: [[west, south], [east, north]],
+  dragRotate: false,              // észak mindig felül — papírtérkép-érzet
+  attributionControl: { compact: true }
 });
 
-L.tileLayer(
-  `https://{s}.basemaps.cartocdn.com/rastertiles/${dark ? 'dark_all' : 'voyager'}/{z}/{x}/{y}{r}.png`,
-  {
-    subdomains: 'abcd',
-    maxZoom: 19,
-    detectRetina: true,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-  }
-).addTo(map);
+map.touchZoomRotate.disableRotation();
 
-// A felső sáv és az alsó lap ne takarja el a középre igazított pontot
-const PAD = { paddingTopLeft: [0, 150], paddingBottomRight: [0, 180] };
+// A felső sáv és az alsó lap ne takarja el a kiválasztott pontot
+const PAD = { top: 150, bottom: 190, left: 30, right: 30 };
 
-// ── Jelölők ────────────────────────────────────────────────────────────────
-const markers = new Map();
+// A jelölők és a városrésznevek DOM-overlayek: nem függenek a csempéktől,
+// ezért azonnal kirakjuk őket. A séta-vonal forrása és rétegei a stílusfájlban
+// vannak — így nem függnek a 'load' eseménytől, ami hálózati hiba esetén
+// megbízhatatlanul sül el.
 
-function pinIcon(poi, { number = null, selected = false } = {}) {
-  const cat = catById[poi.cat];
-  const inner = number !== null ? String(number) : cat.emoji;
-  const cls = ['pin', number !== null ? 'numbered' : '', selected ? 'selected' : '',
-               state.visited.has(poi.id) ? 'done' : ''].filter(Boolean).join(' ');
-  return L.divIcon({
-    className: '',
-    html: `<div class="${cls}" style="--pin:${cat.color}"><span>${inner}</span></div>`,
-    iconSize: [30, 38],
-    iconAnchor: [15, 38]
-  });
-}
-
-for (const poi of POIS) {
-  const m = L.marker([poi.lat, poi.lng], { icon: pinIcon(poi), title: poi.name, riseOnHover: true })
-    .on('click', () => selectPoi(poi.id, { fly: true }));
-  markers.set(poi.id, m);
-}
-
-function refreshMarkers() {
-  const visible = new Set(filtered().map(p => p.id));
-  const order = state.walk ? WALK.stops : [];
-  for (const [id, m] of markers) {
-    const poi = poiById[id];
-    const idx = order.indexOf(id);
-    const show = state.walk ? idx >= 0 : visible.has(id);
-    if (show && !map.hasLayer(m)) m.addTo(map);
-    if (!show && map.hasLayer(m)) m.remove();
-    if (show) {
-      m.setIcon(pinIcon(poi, {
-        number: idx >= 0 ? idx + 1 : null,
-        selected: state.selected === id
-      }));
-    }
-  }
-}
-
-// ── Séta-útvonal ───────────────────────────────────────────────────────────
-const routeLine = L.polyline(WALK.path, {
-  color: dark ? '#8ab4f8' : '#1a73e8',
-  weight: 6, opacity: .85, lineJoin: 'round', lineCap: 'round'
+map.on('error', e => {
+  // A csempeszerver elérhetetlensége ne dobja el az egész appot
+  console.warn('Térkép hiba:', e && e.error && e.error.message);
 });
+
+// ── Séta-útvonal rétegek ───────────────────────────────────────────────────
+const EMPTY = { type: 'FeatureCollection', features: [] };
+
+function walkGeoJSON() {
+  return {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: { type: 'LineString', coordinates: WALK.path.map(toLngLat) },
+      properties: {}
+    }]
+  };
+}
+
+/* A stílus még nem biztos, hogy elemzett, amikor a felhasználó megnyomja a
+   gombot — ilyenkor egyszer újrapróbáljuk a következő stílus-eseménynél. */
+function applyWalk() {
+  if (!map.isStyleLoaded() || !map.getSource('walk')) {
+    map.once('styledata', applyWalk);
+    return;
+  }
+  map.getSource('walk').setData(state.walk ? walkGeoJSON() : EMPTY);
+  const vis = state.walk ? 'visible' : 'none';
+  map.setLayoutProperty('walk-casing', 'visibility', vis);
+  map.setLayoutProperty('walk-line', 'visibility', vis);
+}
 
 function setWalk(on) {
   state.walk = on;
   $('#fab-walk').setAttribute('aria-pressed', String(on));
+  applyWalk();
+
   if (on) {
-    routeLine.addTo(map);
-    map.fitBounds(routeLine.getBounds(), PAD);
-  } else {
-    routeLine.remove();
+    const lons = WALK.path.map(p => p[1]), lats = WALK.path.map(p => p[0]);
+    map.fitBounds(
+      [[Math.min(...lons), Math.min(...lats)], [Math.max(...lons), Math.max(...lats)]],
+      { padding: PAD, duration: 700 }
+    );
   }
   render();
+}
+
+// ── Városrésznevek ─────────────────────────────────────────────────────────
+function addDistrictLabels() {
+  for (const d of DISTRICTS) {
+    const el = document.createElement('div');
+    el.className = 'district';
+    el.textContent = d.name;
+    el.style.setProperty('--s', d.size);
+    new maplibregl.Marker({ element: el, anchor: 'center' })
+      .setLngLat([d.lng, d.lat])
+      .addTo(map);
+  }
+}
+
+// ── POI jelölők ────────────────────────────────────────────────────────────
+const markers = new Map();
+
+function makePin(poi) {
+  const el = document.createElement('div');
+  el.className = 'pin';
+  el.style.setProperty('--pin', catById[poi.cat].color);
+  el.innerHTML = '<span></span>';
+  el.addEventListener('click', ev => {
+    ev.stopPropagation();
+    selectPoi(poi.id, { fly: true });
+  });
+  const marker = new maplibregl.Marker({ element: el, anchor: 'bottom' })
+    .setLngLat([poi.lng, poi.lat]);
+  return { marker, el, added: false };
+}
+
+for (const poi of POIS) markers.set(poi.id, makePin(poi));
+
+function refreshMarkers() {
+  const visible = new Set(filtered().map(p => p.id));
+  const order = state.walk ? WALK.stops : [];
+
+  for (const [id, m] of markers) {
+    const poi = poiById[id];
+    const idx = order.indexOf(id);
+    const show = state.walk ? idx >= 0 : visible.has(id);
+
+    if (show && !m.added) { m.marker.addTo(map); m.added = true; }
+    if (!show && m.added) { m.marker.remove(); m.added = false; }
+    if (!show) continue;
+
+    const numbered = idx >= 0;
+    m.el.className = ['pin', numbered ? 'numbered' : '',
+                      state.selected === id ? 'selected' : '',
+                      state.visited.has(id) ? 'done' : ''].filter(Boolean).join(' ');
+    m.el.firstChild.textContent = numbered ? String(idx + 1) : catById[poi.cat].emoji;
+  }
 }
 
 // ── Segédfüggvények ────────────────────────────────────────────────────────
@@ -148,7 +195,9 @@ function filtered() {
 }
 
 function anchor() {
-  return state.userPos || [map.getCenter().lat, map.getCenter().lng];
+  if (state.userPos) return state.userPos;
+  const c = map.getCenter();
+  return [c.lat, c.lng];
 }
 
 let toastTimer;
@@ -157,20 +206,24 @@ function toast(msg) {
   el.textContent = msg;
   el.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => el.classList.remove('show'), 3200);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3600);
 }
 
-// ── Google Maps átadás ─────────────────────────────────────────────────────
+// ── Google átadás ──────────────────────────────────────────────────────────
 function navigateTo(poi) {
-  const url = 'https://www.google.com/maps/dir/?api=1' +
-    `&destination=${poi.lat},${poi.lng}` +
-    `&travelmode=${state.travelMode}`;
-  window.open(url, '_blank', 'noopener');
+  window.open('https://www.google.com/maps/dir/?api=1' +
+    `&destination=${poi.lat},${poi.lng}&travelmode=${state.travelMode}`,
+    '_blank', 'noopener');
 }
 
 function openInMaps(poi) {
   const q = encodeURIComponent(`${poi.name}, Lisboa, Portugal`);
   window.open(`https://www.google.com/maps/search/?api=1&query=${q}`, '_blank', 'noopener');
+}
+
+function openImages(poi) {
+  const q = encodeURIComponent(`${poi.name} Lisboa`);
+  window.open(`https://www.google.com/search?tbm=isch&q=${q}`, '_blank', 'noopener');
 }
 
 // A Google Maps URL API legfeljebb 9 köztes pontot fogad el.
@@ -183,7 +236,6 @@ function navigateWalk() {
   let dropped = 0;
 
   if (middle.length > MAX_WAYPOINTS) {
-    // Egyenletesen ritkítunk, hogy az útvonal alakja megmaradjon
     const step = middle.length / MAX_WAYPOINTS;
     const kept = [];
     for (let i = 0; i < MAX_WAYPOINTS; i++) kept.push(middle[Math.floor(i * step)]);
@@ -191,16 +243,15 @@ function navigateWalk() {
     middle = kept;
   }
 
-  const url = 'https://www.google.com/maps/dir/?api=1' +
+  if (dropped) {
+    toast(`A Google Maps max. ${MAX_WAYPOINTS} köztes megállót fogad — ${dropped} megálló kimaradt.`);
+  }
+
+  window.open('https://www.google.com/maps/dir/?api=1' +
     `&origin=${origin.lat},${origin.lng}` +
     `&destination=${destination.lat},${destination.lng}` +
     `&waypoints=${middle.map(p => `${p.lat},${p.lng}`).join('|')}` +
-    '&travelmode=walking';
-
-  if (dropped) {
-    toast(`A Google Maps max. ${MAX_WAYPOINTS} köztes megállót fogad — ${dropped} megálló kimaradt az útvonalból.`);
-  }
-  window.open(url, '_blank', 'noopener');
+    '&travelmode=walking', '_blank', 'noopener');
 }
 
 // ── Lista ──────────────────────────────────────────────────────────────────
@@ -211,14 +262,13 @@ function render() {
   if (state.walk) {
     $('#sheet-title').textContent = WALK.name;
     $('#sheet-count').textContent = `${WALK.distance} · ${WALK.duration}`;
-    const items = WALK.stops.map((id, i) => ({ poi: poiById[id], n: i + 1 }));
     list.innerHTML =
       `<div style="padding:12px 16px 4px">
          <button class="btn primary" id="walk-start" style="width:100%">
            ➤ Útvonal indítása a Google Mapsben
          </button>
        </div>` +
-      items.map(({ poi, n }) => poiRow(poi, from, n)).join('');
+      WALK.stops.map((id, i) => poiRow(poiById[id], from, i + 1)).join('');
     $('#walk-start').addEventListener('click', navigateWalk);
   } else {
     const items = filtered()
@@ -277,7 +327,14 @@ function selectPoi(id, { fly = false } = {}) {
   $('#detail').setAttribute('aria-hidden', 'false');
   $('#scrim').classList.add('open');
 
-  if (fly) map.flyTo([poi.lat, poi.lng], Math.max(map.getZoom(), 17), { duration: .5 });
+  if (fly) {
+    map.flyTo({
+      center: [poi.lng, poi.lat],
+      zoom: Math.max(map.getZoom(), 17),
+      duration: 600,
+      offset: [0, -90]           // a részletek lap fölé emeljük a pontot
+    });
+  }
   refreshMarkers();
 }
 
@@ -316,11 +373,8 @@ function buildChips() {
   box.querySelectorAll('.chip').forEach(btn => {
     btn.addEventListener('click', () => {
       const key = btn.dataset.key;
-      if (key === 'saved') {
-        state.savedOnly = !state.savedOnly;
-      } else {
-        state.cats.has(key) ? state.cats.delete(key) : state.cats.add(key);
-      }
+      if (key === 'saved') state.savedOnly = !state.savedOnly;
+      else state.cats.has(key) ? state.cats.delete(key) : state.cats.add(key);
       if (state.walk) setWalk(false);
       syncChips();
       render();
@@ -332,13 +386,13 @@ function buildChips() {
 function syncChips() {
   document.querySelectorAll('.chip').forEach(btn => {
     const key = btn.dataset.key;
-    const on = key === 'saved' ? state.savedOnly : state.cats.has(key);
-    btn.setAttribute('aria-pressed', String(on));
+    btn.setAttribute('aria-pressed',
+      String(key === 'saved' ? state.savedOnly : state.cats.has(key)));
   });
 }
 
 // ── Helymeghatározás ───────────────────────────────────────────────────────
-let meMarker = null, meCircle = null, watchId = null;
+let meMarker = null, watchId = null;
 
 function locate() {
   if (!navigator.geolocation) return toast('Ez a böngésző nem támogatja a helymeghatározást.');
@@ -349,24 +403,23 @@ function locate() {
   watchId = navigator.geolocation.watchPosition(
     pos => {
       fab.classList.remove('locating');
-      const { latitude: lat, longitude: lng, accuracy } = pos.coords;
+      const { latitude: lat, longitude: lng } = pos.coords;
       const first = !state.userPos;
       state.userPos = [lat, lng];
 
       if (!meMarker) {
-        meMarker = L.marker([lat, lng], {
-          icon: L.divIcon({ className: '', html: '<div class="me"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }),
-          zIndexOffset: 1000, interactive: false
-        }).addTo(map);
-        meCircle = L.circle([lat, lng], { radius: accuracy, color: '#1a73e8', weight: 1, fillOpacity: .12 }).addTo(map);
+        const el = document.createElement('div');
+        el.className = 'me';
+        meMarker = new maplibregl.Marker({ element: el, anchor: 'center' })
+          .setLngLat([lng, lat]).addTo(map);
       } else {
-        meMarker.setLatLng([lat, lng]);
-        meCircle.setLatLng([lat, lng]).setRadius(accuracy);
+        meMarker.setLngLat([lng, lat]);
       }
 
       if (first) {
-        const inCity = L.latLngBounds(CITY.bounds).pad(0.5).contains([lat, lng]);
-        if (inCity) map.flyTo([lat, lng], 17, { duration: .6 });
+        const inCity = lat > south - 0.01 && lat < north + 0.01 &&
+                       lng > west - 0.01 && lng < east + 0.01;
+        if (inCity) map.flyTo({ center: [lng, lat], zoom: 17, duration: 800 });
         else toast('Jelenleg nem Lisszabon belvárosában vagy — a térkép a belvároson marad.');
       }
       render();
@@ -477,8 +530,7 @@ const DRAG_THRESHOLD = 8;   // ennyi px alatt koppintásnak számít, nem húzá
 
   handle.addEventListener('pointermove', e => {
     if (startY === null) return;
-    const dy = Math.max(0, e.clientY - startY);
-    detail.style.transform = `translateY(${dy}px)`;
+    detail.style.transform = `translateY(${Math.max(0, e.clientY - startY)}px)`;
   });
 
   const end = e => {
@@ -517,15 +569,19 @@ $('#fab-walk').addEventListener('click', () => {
   openSheet('half');
 });
 
+$('#fab-tilt').addEventListener('click', () => {
+  state.tilted = !state.tilted;
+  $('#fab-tilt').setAttribute('aria-pressed', String(state.tilted));
+  map.easeTo({ pitch: state.tilted ? CITY.pitch : 0, duration: 500 });
+});
+
 $('#fab-locate').addEventListener('click', locate);
 $('#d-close').addEventListener('click', closeDetail);
 $('#scrim').addEventListener('click', closeDetail);
 
 $('#d-nav').addEventListener('click', () => navigateTo(poiById[state.selected]));
-$('#d-search').addEventListener('click', e => {
-  e.preventDefault();
-  openInMaps(poiById[state.selected]);
-});
+$('#d-search').addEventListener('click', () => openInMaps(poiById[state.selected]));
+$('#d-images').addEventListener('click', () => openImages(poiById[state.selected]));
 
 $('#d-fav').addEventListener('click', () => {
   const id = state.selected;
@@ -564,6 +620,7 @@ window.addEventListener('resize', () => openSheet('peek'));
 
 // ── Indulás ────────────────────────────────────────────────────────────────
 buildChips();
+addDistrictLabels();
 render();
 requestAnimationFrame(() => openSheet('peek'));
 

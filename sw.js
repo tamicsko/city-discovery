@@ -1,9 +1,9 @@
-/* Service worker: az app váza offline is elérhető, a térképcsempéket
-   korlátozott mérettel, futás közben cache-eljük. */
+/* Service worker: az app váza offline is elérhető, a vektorcsempéket és
+   betűglyphokat korlátozott mérettel, futás közben cache-eljük. */
 
-const SHELL = 'cd-shell-v1';
-const TILES = 'cd-tiles-v1';
-const TILE_LIMIT = 600;
+const SHELL = 'cd-shell-v2';
+const TILES = 'cd-tiles-v2';
+const TILE_LIMIT = 900;
 
 const ASSETS = [
   './',
@@ -11,8 +11,9 @@ const ASSETS = [
   'css/styles.css',
   'js/app.js',
   'js/pois.js',
-  'vendor/leaflet.css',
-  'vendor/leaflet.js',
+  'style/lisbon.json',
+  'vendor/maplibre-gl.css',
+  'vendor/maplibre-gl.js',
   'manifest.webmanifest',
   'icons/icon-192.png',
   'icons/icon-512.png',
@@ -50,15 +51,15 @@ self.addEventListener('fetch', event => {
 
   const url = new URL(request.url);
 
-  // Térképcsempék: cache-first, majd háttérben frissítés
-  if (url.hostname.endsWith('basemaps.cartocdn.com')) {
+  // Csempék, betűglyphok, sprite-ok: cache-first
+  if (url.hostname.endsWith('openfreemap.org')) {
     event.respondWith((async () => {
       const cache = await caches.open(TILES);
       const hit = await cache.match(request);
       if (hit) return hit;
       try {
         const res = await fetch(request);
-        if (res.ok || res.type === 'opaque') {
+        if (res.ok) {
           cache.put(request, res.clone());
           trimCache(TILES, TILE_LIMIT);
         }
